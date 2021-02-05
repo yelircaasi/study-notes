@@ -52,12 +52,12 @@
 
 
 
-6. Multivariable Differential Calculus
+## 6. Multivariable Differential Calculus
 
 
 
-7. Multivariable Integral Calculus
+## 7. Multivariable Integral Calculus
 
 
 
-8. Statistics, Basic
+## 8. Statistics, Basic
