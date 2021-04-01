@@ -1,0 +1,368 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage[pagebackref=true]{hyperref}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{bbm}
+\usepackage{stmaryrd}
+\usepackage{mathtools}
+\usepackage{xcolor}
+
+\newcommand{\Ubr}[2]{\underbrace{ #1 }_{\mathclap{\text{ #2 }}}}
+\newcommand{\Br}[1]{\{ #1 \}}
+\newcommand{\inv}{^{-1}}
+%\newcommand{\todobox}{\textcolor{red}{$~$------ \\$|~~~~~|$\\$~$------ }}
+\newcommand{\todobox}{\textcolor{red}{\fbox{\phantom{--}}}}
+\newcommand{\x}{\textbf{x}}
+\newcommand{\y}{\textbf{y}}
+\newcommand{\F}{\textbf{F}}
+\newcommand{\bv}{\textbf{b}}
+\newcommand{\av}{\textbf{a}}
+\newcommand{\R}{\textbf{R}}
+\newcommand{\C}{\textbf{C}}
+\newcommand{\att}{\textcolor{red}{$\rightarrow$ }}
+\newcommand{\Bcal}{\mathcal{B}}
+\newcommand{\bm}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+
+\geometry{margin=2cm}
+
+\title{Matrix Analysis (Horn and Johnson) - Study Notes}
+\author{Isaac Riley}
+%\date{August 2020}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+
+\setcounter{section}{-1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Review and miscellanea}
+\setcounter{subsection}{-1}
+%--------------------------------------------------
+\subsection{Vector spaces}
+\todobox \\
+Interestingly suggestive word: field \textit{underlying} vector space. \F used for unspecified field here; \textbf{K} elsewhere (from \textit{Körper}).\\~\\
+\underline{Vector space} over \F: set $V$ of vectors which
+\begin{itemize}
+ \item is closed under a binary operation called \textit{addition}
+ \item \textit{addition} is associative and commutative
+ \item contains an identity, called $0$
+ \item contains additive inverses
+ \item has an operation of left multiplication of vectors by elements of scalar field \F
+ \item left scalar multiplication is closed: $a\x \in V$ for all $a \in \F, \x \in V$
+ \item left scalar multiplication is distributive: $a(\x+\y) = a\x+a\y$ and $(a+b)\x = a\x+b\x$ for all $a,b \in \F, \x,\y \in V$
+ \item left scalar multiplication is associative: $a(b\x)=(ab)\x$
+ \item there is a multiplicative identity $e \in \F: e\x = \x$
+\end{itemize}
+The space of real-valued functions is an example of an infinite-dimensional vector space.\\~\\
+Subspaces are usually defined by making certain elements of the vector zero, which makes the resulting set closed under addition.\\~\\
+\att Prove: The intersection of two subspaces is itself a subspace.\\~\\
+The span of a subset is always a subspace, even if the subset is itself not a subspace. \att prove! \\~\\
+Span: space of all linear combinations of a set of vectors.\\~\\
+Linear independence in a nutshell: a linear combination of the vectors can only equal 0 if each coefficient is zero. Equivalently: no vector in the set is a linear combination of the other vectors.\\~\\
+\att Simple exercise: Prove that any subset of a linearly independent set is itself linearly independent.\\~\\
+Basis of a vector space: a linearly independent set that spans the vector space\\~\\
+\att Proof that bases are nonunique: \\~\\
+\att Proof that the representation of a vector with respect to a basis is unique: \\~\\
+\att Proof that set $S$ in $V$ is a basis $\iff$ any proper superset of $S$ is linearly dependent: \\~\\
+\att Proof that any linearly independent set in $V$ that is not a basis can be extended to become a basis of $V$: \\~\\
+Example: The space $C[0,1]$ of real-valued continuous functions on $[0,1]$ has an infinite basis $\{1,x,x^2,x^3,...\}$ \\~\\
+\att Proof that there exists a ono-to-one correspondence between the elements of any two infinite bases for the same vector space: \\~\\
+\att The vector space $\C^n$ has dimension $n$ over the field $\C$ but has dimension $2n$ over the field $\R$. Why?\\~\\
+\underline{Isomorphism}: $f:U \rightarrow V$ where
+\begin{itemize}
+ \item $U$ and $V$ are vector spaces over the same scalar field $\F$
+ \item $f$ is invertible
+ \item $f(a\x+b\y) = af(\x)+bf(\y)$ for all $a,b \in \F, \x,\y \in U$
+\end{itemize}
+In this case, $U$ and $V$ are \textit{isomorphic}. \\~\\
+\att Prove: Two finite-dimensional vector spaces can be isomorphic $\iff$ they have the same dimension: \\~\\
+\att Examples of $n$-dimensional vector spaces that are distinct from $\R^n$: \\~\\
+Isomorphism example: $f: V \rightarrow \F^n: \x \mapsto [\x]_\Bcal: a_1 \bv_1+...+a_n \bv_n \mapsto [a_1,...,a_n]^\top $ where $\Bcal=\{\bv_1,...,\bv_n\}$.
+\begin{quote}In words: map an arbitrary $n$-dimensional vector space to $\F^n$ by mapping a vector to the coefficients corresponding to its unique representation with respect to a given basis.\end{quote}
+$[\x]_\Bcal$ represents the new coordinates of $\x$ in ordered basis $\Bcal$, i.e. the $\Bcal$-coordinates of $\x$.\\~\\
+Change-of-basis matrix (transition matrix):
+\begin{quote}\end{quote}
+Concrete example: 
+\begin{quote}Let $\x=[\x]_I=\bm{2\\-1\\1}, \Bcal_1=\left( \bm{2\\0\\-1}, \bm{0\\2\\1}, \bm{-1\\0\\1} \right), \Bcal_2=\left( \bm{2\\0\\0}, \bm{1\\2\\1}, \bm{-1\\-1\\2} \right) \\ \Rightarrow B_1=\bm{2&0&-1\\0&2&0\\-1&1&1}, B_2=\bm{2&1&-1\\0&2&-1\\0&1&2}$.\end{quote}
+\begin{quote}First solve for $[\x]_{\Bcal_1}$: \end{quote}
+                                                                      \begin{align*}
+                                                                      B_1 \av_1&= \x \\ 
+                                                                      \av_1 &= [\x]_{\Bcal_1} = B_1\inv \x \\
+                                                                      \end{align*}
+\begin{quote}Analogously, $[\x]_{\Bcal_2} = B_2\inv \x$.\end{quote}
+\begin{quote}We still need to find the change-of-basis matrix $\phantom{a}_{\Bcal_2}[I]_{\Bcal_1}$ such that $T([\x]_{\Bcal_1})=[\x]_{\Bcal_2}=\phantom{a}_{\Bcal_2}[I]_{\Bcal_1} [\x]_{\Bcal_1}$ (taking us from $\Bcal_1$ to $\Bcal_2$).\end{quote}
+\begin{quote}To save space, set $A:= \phantom{a}_{\Bcal_2}[I]_{\Bcal_1}$. Then we need to solve $[\x]_{\Bcal_2} = A [\x]_{\Bcal_1}$: \end{quote}
+                     \begin{align*}
+                     [\x]_{\Bcal_2} &= A [\x]_{\Bcal_1} \\
+                     B_2\inv \x &= A B_1\inv \x \\
+                     (B_2\inv - AB_1\inv)\x &= 0 \\
+                     (B_2\inv - AB_1\inv) &= 0 \\
+                     AB_1\inv &= B_2\inv \\
+                     A &= B_2\inv B_1
+                     \end{align*}
+\begin{quote}Our change-of-basis matrix is a two step process: $\phantom{a}_{\Bcal_2}[I]_{\Bcal_1} = A = \Ubr{B_2\inv}{\textcircled{\tiny 2} $I \rightarrow \Bcal_2$}\phantom{ccccc} \Ubr{B_1}{\textcircled{\tiny 1} $\Bcal_1 \rightarrow I$}$\end{quote}
+\begin{quote}In words: to transform from one basis to another, first use the vectors of the first basis (by multiplying by the matrix whose columns are these vectors) to get to standard space, then use the vectors of the second basis (by multiplying by the inverse of the matrix whose columns are these vectors) to put the vector in terms of the second basis. \end{quote}
+$\phantom{a}_{\Bcal_2}[I]_{\Bcal_1}$ is the matrix whose columns are $\Bcal_2$-coordinate vectors of the vectors in $\Bcal$.
+%--------------------------------------------------
+\subsection{Matrices}
+\todobox
+%--------------------------------------------------
+\subsection{Determinants}
+\todobox
+%--------------------------------------------------
+\subsection{Rank}
+\todobox
+%--------------------------------------------------
+\subsection{Nonsingularity}
+\todobox
+%--------------------------------------------------
+\subsection{The usual inner product}
+\todobox
+%--------------------------------------------------
+\subsection{Partitioned matrices}
+\todobox
+%--------------------------------------------------
+\subsection{Determinants again}
+\todobox
+%--------------------------------------------------
+\subsection{Special types of matrices}
+\todobox
+%--------------------------------------------------
+\subsection{Change of basis}
+\todobox
+
+%--------------------------------------------------
+\subsubsection{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Eigenvectors, eigenvalues, and similarity}
+\setcounter{subsection}{-1}
+%--------------------------------------------------
+\subsection{Introduction}
+\todobox
+%--------------------------------------------------
+\subsection{The eigenvalue-eigenvector equation}
+\todobox
+%--------------------------------------------------
+\subsection{The characteristic polynomial}
+\todobox
+%--------------------------------------------------
+\subsection{Similarity}
+\todobox
+%--------------------------------------------------
+\subsection{Eigenvectors}
+\todobox
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Unitary equivalence and normal matrices}
+\setcounter{subsection}{-1}
+%--------------------------------------------------
+\subsection{Introduction}
+\todobox
+%--------------------------------------------------
+\subsection{Unitary matrices}
+\todobox
+%--------------------------------------------------
+\subsection{Unitary equivalence}
+\todobox
+%--------------------------------------------------
+\subsection{Schur's unitary triangulization theorem}
+\todobox
+%--------------------------------------------------
+\subsection{Some implications of Schur's theorem}
+\todobox
+%--------------------------------------------------
+\subsection{Normal matrices}
+\todobox
+%--------------------------------------------------
+\subsection{$QR$ factorization and algorithm}
+\todobox
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Canonical forms}
+\setcounter{subsection}{-1}
+%--------------------------------------------------
+\subsection{Introduction}
+\todobox
+%--------------------------------------------------
+\subsection{The Jordan canonical form: a proof}
+\todobox
+%--------------------------------------------------
+\subsection{The Jordan canonical form: some observations and applications}
+\todobox
+%--------------------------------------------------
+\subsection{Polynomials and matrices: the minimal polynomial}
+\todobox
+%--------------------------------------------------
+\subsection{Other canonical forms and factorizations}
+\todobox
+%--------------------------------------------------
+\subsection{Triangular factorizations}
+\todobox
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Hermitian and symmetric matrices}
+\setcounter{subsection}{-1}
+%--------------------------------------------------
+\subsection{Introduction}
+\todobox
+%--------------------------------------------------
+\subsection{Definitions, properties, and characterizations of Hermitian matrices}
+\todobox
+%--------------------------------------------------
+\subsection{Variational characterizations of Hermitian matrices}
+\todobox
+%--------------------------------------------------
+\subsection{Some applications of the variational characterizations}
+\todobox
+%--------------------------------------------------
+\subsection{Complex symmetric matrices}
+\todobox
+%--------------------------------------------------
+\subsection{Congruence and simultaneous diagonalization of Hermitian and symmetric matrices}
+\todobox
+%--------------------------------------------------
+\subsection{Consimilarity and condiagnalization}
+\todobox
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Norms for vectors and matrices}
+\setcounter{subsection}{-1}
+%--------------------------------------------------
+\subsection{Introduction}
+\todobox
+%--------------------------------------------------
+\subsection{Defining properties of vector norms and inner products}
+\todobox
+%--------------------------------------------------
+\subsection{Examples of vector norms}
+\todobox
+%--------------------------------------------------
+\subsection{Algebraic properties of vector norms}
+\todobox
+%--------------------------------------------------
+\subsection{Geometric properties of vector norms}
+\todobox
+%--------------------------------------------------
+\subsection{Matrix norms}
+\todobox
+%--------------------------------------------------
+\subsection{Vector norms on matrices}
+\todobox
+%--------------------------------------------------
+\subsection{Errors in inverses and solutions of linear systems}
+\todobox
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Location and perturbation of eigenvalues}
+\setcounter{subsection}{-1}
+%--------------------------------------------------
+\subsection{Introduction}
+\todobox
+%--------------------------------------------------
+\subsection{Gersgorin discs}
+\todobox
+%--------------------------------------------------
+\subsection{Gersgorin discs - a closer look}
+\todobox
+%--------------------------------------------------
+\subsection{Perturbation theorems}
+\todobox
+%--------------------------------------------------
+\subsection{Other inclusion regions}
+\todobox
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Positive definite matrices}
+\setcounter{subsection}{-1}
+%--------------------------------------------------
+\subsection{Introduction}
+\todobox
+%--------------------------------------------------
+\subsection{Definitions and properties}
+\todobox
+%--------------------------------------------------
+\subsection{Characterizations}
+\todobox
+%--------------------------------------------------
+\subsection{The polar form and the singular value decomposition}
+\todobox
+%--------------------------------------------------
+\subsection{Examples and applications of the singular value decomposition}
+\todobox
+%--------------------------------------------------
+\subsection{The Schur product theorem}
+\todobox
+%--------------------------------------------------
+\subsection{Congruence: products and simultaneous diagonalization}
+\todobox
+%--------------------------------------------------
+\subsection{The positive semidefinite ordering}
+\todobox
+%--------------------------------------------------
+\subsection{Inequalities for positive definite matrices}
+\todobox
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Nonnegative matrices}
+\setcounter{subsection}{-1}
+%--------------------------------------------------
+\subsection{Introduction}
+\todobox
+%--------------------------------------------------
+\subsection{Nonnegative matrices - inequalities and generalities}
+\todobox
+%--------------------------------------------------
+\subsection{Positive matrices}
+\todobox
+%--------------------------------------------------
+\subsection{Nonnegative matrices}
+\todobox
+%--------------------------------------------------
+\subsection{Irreducible nonnegative matrices}
+\todobox
+%--------------------------------------------------
+\subsection{Primitive matrices}
+\todobox
+%--------------------------------------------------
+\subsection{A general limit theorem}
+\todobox
+%--------------------------------------------------
+\subsection{Stochastic and doubly stochastic matrices}
+\todobox
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Appendix A: Complex numbers}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Appendix B: Convex sets and functions}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Appendix C: The Fundamental Theorem of Algebra}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Appendix D: Continuous dependence of the zeroes of a polynomial on its coefficients}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Appendix E: Weierstrass's Theorem}
+
+
+\end{document}
