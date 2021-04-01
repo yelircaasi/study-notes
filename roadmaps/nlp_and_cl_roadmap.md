@@ -2,7 +2,7 @@
 ☐ 
 ☑ make roadmap
 ## 1. First Exposure and Overview
-#####__*Read the following:*__
+##### __*Read the following:*__
   1. [Wikipedia on NLP](https://en.wikipedia.org/wiki/Natural_language_processing)
   2. [Wikipedia on CL](https://en.wikipedia.org/wiki/Computational_linguistics)
 3. [Wikipedia on linguistics](https://en.wikipedia.org/wiki/Linguistics) 
@@ -145,7 +145,7 @@
 ## WordNet
 
 
-##Word Sense Disambiguation
+## Word Sense Disambiguation
 
 
 ## Thesauri in NLP
