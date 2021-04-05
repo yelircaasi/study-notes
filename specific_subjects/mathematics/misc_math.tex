@@ -1,0 +1,123 @@
+\documentclass[a4, 12pt]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage[margin=3cm]{geometry}
+\usepackage{todonotes}
+
+\newcommand{\vecv}{\textbf{v}}
+\newcommand{\vecu}{\textbf{u}}
+\newcommand{\vecw}{\textbf{w}}
+\newcommand{\no}[1]{\lVert #1 \rVert}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{}
+\lfoot{Math Notes}
+\cfoot{\thepage}
+\rfoot{Isaac Riley}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\begin{document}
+
+\begin{titlepage}
+
+
+\thispagestyle{fancy}
+
+\vphantom{x}
+
+\vspace{0.5in}
+
+\center
+
+
+\textsc{\large }
+
+\vspace{0.5in}
+
+\noindent\makebox[\linewidth]{\rule{\linewidth}{1.2pt}}\\
+\vspace{2mm}
+\textsc{ \textbf{\large Miscellaneous Notes - Mathematics }}
+\noindent\makebox[\linewidth]{\rule{\linewidth}{1.2pt}}
+
+\vspace{2.5in}
+Isaac Riley\\~\\
+
+Last edited: \today
+
+\end{titlepage}
+
+\newpage
+
+\setcounter{page}{2}
+\tableofcontents
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Derivation of Angle Formula for Two Vectors}
+\todo{Add graphics}
+Let $\vecu$ and $\vecv$ be vectors in an arbitrary vector space. \\~\\
+By the Law of Cosines, $$\lVert\vecu - \vecu\rVert^2 = \lVert\vecu\rVert^2+\lVert\vecv\rVert^2-2\lVert\vecu\rVert\cdot\lVert\vecv\rVert\cos \theta.$$
+By the definition of norms, $$\lVert\vecu - \vecu\rVert^2 = \vecu \cdot \vecu - 2 \vecu \cdot \vecv + \vecv \cdot \vecv$$
+Combining these, we have 
+\begin{align*}
+\vecu \cdot \vecu - 2 \vecu \cdot \vecv + \vecv \cdot \vecv &= \lVert\vecu\rVert^2+\lVert\vecv\rVert^2-2\lVert\vecu\rVert\cdot\lVert\vecv\rVert\cos \theta.\\
+-2\vecu \cdot \vecv &= \2 \lVert\vecu\rVert \cdot \lVert\vecv\rVert \cos \theta.\\
+\cos \theta &= \dfrac{\vecu \cdot \vecv}{\lVert\vecu\rVert \cdot \lVert\vecv\rVert}.\\
+\theta &= 
+\cos^{-1}
+\left( 
+\dfrac{\vecu \cdot \vecv}{\lVert \vecu \rVert \cdot \lVert \vecv \rVert} 
+\right).
+\end{align*}
+Alternatively: $\cos \theta$ is the dot product of corresponding unit vectors.
+\section{Dot Product Intuition}
+\begin{itemize}
+    \item overall similarity of vectors
+    \item ranges from 0 (perpendicular) to maximum when collinear
+    \item invariant to rotation: $a \cdot b = \no{a}\no{b} \cos \theta$
+\end{itemize}
+
+\section{Proof of Law of Cosines}
+
+
+\section{Proof that $\sin^2 \theta + \cos^2 \theta = 1$}
+
+
+\section{Eigendecomposition to SVD}
+
+
+\section{$\sigma$-Algebra}
+
+
+\section{Proof of Triangle Inequality}
+
+\newpage
+\section{Proof of Cauchy-Schwarz Inequality}
+Note that $|x \cdot y| \leq \no{x}\no{y}$ is equivalent to $\left( \sum\limits_{i=1}^n x_i^2 \right) \left( \sum\limits_{i=1}^n y_i^2 \right) \geq \left( \sum\limits_{i=1}^n x_i y_i \right)^2$.\\~\\
+We derive the result from the self-evident fact that square numbers are nonnegative, the key step involving the fact that $\sum\limits_{i=1}^n x_i = \sum\limits_{j=1}^n x_j$.
+\begin{align*}
+    \sum\limits_{i=1}^n \sum\limits_{j=1}^n (x_i y_j - x_j y_i)^2 &\geq 0 \\
+    \sum\limits_{i=1}^n x_i^2 \sum\limits_{j=1}^n y_j^2 +\sum\limits_{i=1}^n y_i^2 \sum\limits_{j=1}^n x_j^2 - 2\sum\limits_{i=1}^n x_i y_i \sum\limits_{j=1}^n x_j y_j &\geq 0 \\
+    2\left( \sum\limits_{i=1}^n x_i^2 \right)\left( \sum\limits_{i=1}^n y_i^2 \right) - 2\left( \sum\limits_{i=1}^n x_i y_i \right)^2 &\geq 0  \\
+    \Rightarrow \left( \sum\limits_{i=1}^n x_i^2 \right)\left( \sum\limits_{i=1}^n y_i^2 \right) - \left( \sum\limits_{i=1}^n x_i y_i \right)^2 &\geq 0 \\
+    \no{x}^2\no{y}^2 &\geq (x \cdot y)^2 \\
+    \no{x}\no{y} &\geq |x \cdot y|
+\end{align*}
+\todo{Dig into intuition!}
+\section{Alternative Proof of Cauchy-Schwarz Inequality}
+
+
+\section{Proof of Vector Projection Formula}
+
+
+\section{Constructive Derivation of General Determinant}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliography{sources}
+\bibliographystyle{IEEEtran}
+\end{document}
