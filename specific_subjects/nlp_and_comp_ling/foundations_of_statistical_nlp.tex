@@ -1,0 +1,309 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage[pagebackref=true]{hyperref}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{bbm}
+\usepackage{stmaryrd}
+\usepackage{mathtools}
+
+\newcommand{\Ubr}[2]{\underbrace{ #1 }_{\mathclap{\text{ #2 }}}}
+\newcommand{\Br}[1]{\{ #1 \}}
+
+\geometry{margin=2cm}
+
+\title{Foundations of Statistical Natural Language Processing - Study Notes}
+\author{Isaac Riley}
+\date{Last edited: \today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%========================================================
+%--------------------------------------------------
+
+\section*{I Preliminaries}
+\section{Rationalist and Empiricist Approaches to Language}
+\subsection{Scientifc Content}
+\subsubsection{Questions that linguistics should answer}
+\subsubsection{Non-categorical phenomena in language}
+\subsubsection{Language and cognition as probabilistic phenomena}
+\subsection{The Ambiguity of Language: Why NLP Is Difficult}
+\subsection{Dirty Hands}
+\subsubsection{Lexical resources}
+\subsubsection{Word counts}
+\subsubsection{Zipf's laws}
+\subsubsection{Collocations}
+\subsubsection{Concordances}
+\subsection{Further Reading}
+\subsection{Exercises}
+\newpage
+\section{Mathematical Foundations}
+\subsection{Elementary Probability Theory}
+\subsubsection{Probability spaces}
+\subsubsection{Conditional probability and independence}
+\subsubsection{Bayes' Theorem}
+\subsubsection{Random variables}
+\subsubsection{Expectation and variance}
+\subsubsection{Notation}
+\subsubsection{Joint and conditional distributions}
+\subsubsection{Determining P}
+\subsubsection{Standard distributions}
+\subsubsection{Bayesian statistics}
+\subsubsection{Exercises}
+\subsection{Essential Information Theory}
+\subsubsection{Entropy}
+\subsubsection{Joint entropy and conditional entropy}
+\subsubsection{Mutual information}
+\subsubsection{The noisy channel model}
+\subsubsection{Relative entropy or Kullback-Leibler divergence}
+\subsubsection{The relation to language: Cross entropy}
+\subsubsection{The entropy of English}
+\subsubsection{Perplexity}
+\subsubsection{Exercises}
+\subsubsection{Further Reading}
+\newpage
+\section{Linguistic Essentials}
+\subsection{Parts of Speech and Morphology}
+\subsubsection{Nouns and pronouns}
+\subsubsection{Words that accompany nouns: Determiners and adjectives}
+\subsubsection{Verbs}
+\subsubsection{Oher parts of speech}
+\subsection{Phrase Structure}
+\subsubsection{Phrase structure grammars}
+\subsubsection{Dependency: Arguments and adjuncts}
+\subsubsection{X' theory}
+\subsubsection{Phrase structure ambiguity}
+\subsection{Semanticss and Pragmatics}
+\subsection{Other Areas}
+\subsection{Further Reading}
+\subsection{Exercises}
+\newpage
+\section{Corpus-Based Work}
+\subsection{Getting Set Up}
+\subsubsection{Computers}
+\subsubsection{Corpora}
+\subsubsection{Software}
+\subsection{Looking at Text}
+\subsubsection{Low-level formatting issues}
+\subsubsection{Tokenization: What is a word?}
+\subsubsection{Morphology}
+\subsubsection{Sentences}
+\subsection{Marked-up Data}
+\subsubsection{Markup schemes}
+\subsubsection{Grammatical tagging}
+\subsection{Further Reading}
+\subsection{Exercises}
+\newpage
+\section*{II Words}
+\section{Collocations}
+\subsection{Frequency}
+\subsection{Mean and Variance}
+\subsection{Hypothesis Testing}
+\subsubsection{the t-test}
+\subsubsection{Hypothesis testing of differences}
+\subsubsection{Pearson's chi-square test}
+\subsubsection{Likelihood ratios}
+\subsection{Mutual Information}
+\subsection{The Notion of Collocation}
+\subsection{Further Reading}
+\newpage
+\section{Statistical Inference: n-gram Models over Sparse Data}
+\subsection{Bins: Forming Equivlence Classes}
+\subsubsection{Reliability vs. discrimination}
+\subsubsection{n-gram models}
+\subsubsection{Building n-grm models}
+\subsection{Statistical Estimators}
+\subsubsection{Maximum Likelihood Estimation (MLE)}
+\subsubsection{Laplace's Law, Lidstone's Law and the Jeffrey-Perks law}
+\subsubsection{Held out estimation}
+\subsubsection{Cross-validation (deleted estimation)}
+\subsubsection{Good-Turing estimation}
+\subsubsection{Briefly noted}
+\subsection{Combining Estimators}
+\subsubsection{Simple linear interpolation}
+\subsubsection{Katz's backing-off}
+\subsubsection{General linear interpolation}
+\subsubsection{Briefly noted}
+\subsubsection{Language models for Austen}
+\subsection{Conclusions}
+\subsection{Further Reading}
+\subsection{Exercises}
+\newpage
+\section{Word Sence Disambiguation}
+\subsection{Methodological Preliminaries}
+\subsubsection{Supervised and unsupervised learning}
+\subsubsection{Pseudowords}
+\subsubsection{Upper and lower bounds on performance}
+\subsection{Supervised Disambiguation}
+\subsubsection{Bayesian classification}
+\subsubsection{An information-theoretic approach}
+\subsection{Dictionary-Based Disambiguation}
+\subsubsection{Disambiguation based on sense definitions}
+\subsubsection{Theaurus-based disambiguation}
+\subsubsection{Disambiguation based on translations in a second-language corpus}
+\subsubsection{One sense per discourse, one sense per collocation}
+\subsection{Unsupervised Disambiguation}
+\subsection{What Is a Word Sense?}
+\subsection{Further reading}
+\subsection{Exercises}
+\newpage
+\section{Lexical Acquisition}
+\subsection{Evaluation Measures}
+\subsection{Verb Subcategorization}
+\subsection{Attachment Ambiguity}
+\subsubsection{Hindle and Rooth (1993)}
+\subsubsection{General remarks on PP attachment}
+\subsection{Selectional Preferences}
+\subsection{Semantic Similarity}
+\subsubsection{Vector space measures}
+\subsubsection{Probabilitic measures}
+\subsection{The Role of Lexical Acquisition in Statistical NLP}
+\subsection{Further reading}
+\newpage
+\section*{III Grammar}
+\section{Markov Models}
+\subsection{Markov Models}
+\subsection{Hidden Markov Models}
+\subsubsection{Why use HMMs?}
+\subsubsection{General form of an HMM}
+\subsection{The Three Fundamental Questions for HMMs}
+\subsubsection{Finding the probabiility of an observation}
+\subsubsection{Finding the best state sequence}
+\subsubsection{The third problem: Parameter estimation}
+\subsection{HMMs: Implementation, Properties, and Variants}
+\subsubsection{Implementation}
+\subsubsection{Variants}
+\subsubsection{Multiple input observations}
+\subsubsection{Initialization of parameter values}
+\subsection{Further reading}
+\newpage
+\section{Part-of-Speech Tagging}
+\subsection{The Information Sources in Tagging}
+\subsection{Markov Model Taggers}
+\subsubsection{The probabilistic model}
+\subsubsection{The Viterbi algorithm}
+\subsubsection{Variations}
+\subsection{Hidden Markov Model Taggers}
+\subsubsection{Applying HMMs to POS tagging}
+\subsubsection{The effect of initialization of HMM tagging}
+\subsection{Transformation-Based Learning of Tags}
+\subsubsection{Transformations}
+\subsubsection{The learning algorithm}
+\subsubsection{Relation to other models}
+\subsubsection{Automata}
+\subsubsection{Summary}
+\subsection{Other Methods, Other Languages}
+\subsubsection{Other approaches to tagging}
+\subsubsection{Languages other than English}
+\subsection{Tagging Accuracy and Uses of Taggers}
+\subsubsection{Tagging Accuracy}
+\subsubsection{Applications of tagging}
+\subsection{Further reading}
+\subsection{Exercises}
+\newpage
+\section{Probabilistic Context Free Grammars}
+\subsection{Some Features of PCFGs}
+\subsection{Questions for PCFGs}
+\subsection{The Probability of a String}
+\subsubsection{Using inside probabilities}
+\subsubsection{Using outside probabilities}
+\subsubsection{Finding the most likely parse for a sentence}
+\subsubsection{Training a PCFG}
+\subsection{Problems with the Inside-Outside Algorithm}
+\subsection{Further Reading}
+\subsection{Exercises}
+\newpage
+\section{Probabilistic Parsing}
+\subsection{Some Concepts}
+\subsubsection{Parsing for disambiguation}
+\subsubsection{Treebanks}
+\subsubsection{Parsing models vs. language models}
+\subsubsection{Weakening the independece assumptions of PCFGs}
+\subsubsection{Tree probabilities and derivational probabilities}
+\subsubsection{There's more than one way to do it}
+\subsubsection{Phrase structure grammars and dependency grammars}
+\subsubsection{Evaluation Measures}
+\subsubsection{Equivalent models}
+\subsubsection{Building parsers: Search methods}
+\subsubsection{Use of the geometric mean}
+\subsection{Some Approaches}
+\subsubsection{Non-lexicalized treebank grammars}
+\subsubsection{Lexicalized models using derivational histories}
+\subsubsection{Dependency-based models}
+\subsubsection{Discussion}
+\subsection{Further Reading}
+\subsection{Exercises}
+\newpage
+\section*{IV Applications and Techniques}
+\section{Statistical Alignment and Machine Translation}
+\subsection{Text Alignment}
+\subsubsection{Aligning sentences and paragraphs}
+\subsubsection{Length-based methods}
+\subsubsection{Offset alignment by signal processing techniques}
+\subsubsection{Lexical methods of sentence alignment}
+\subsubsection{Summary}
+\subsubsection{Exercises}
+\subsection{Word Alignment}
+\subsection{Statistical Machine Translation}
+\subsection{Further Reading}
+\newpage
+\section{Clustering}
+\subsection{Herarchical Cllustering}
+\subsubsection{Single-link and complete-link clustering}
+\subsubsection{Group-average agglomerative clustering}
+\subsubsection{An application: Improving a language model}
+\subsubsection{Top-down clustering}
+\subsection{Non-Hierarchical Clustering}
+\subsubsection{K-means}
+\subsubsection{The EM algorithm}
+\subsection{Further Reading}
+\subsection{Exercises}
+\newpage
+\section{Topics in Information Retrieval}
+\subsection{Some background on Information Retrieval}
+\subsubsection{Common design features of IR systems}
+\subsubsection{Evaluation measures}
+\subsubsection{The probability ranking principle (PRP)}
+\subsection{The Vector Space Model}
+\subsubsection{Vector similarity}
+\subsubsection{Term weighting}
+\subsection{Term Distribution Models}
+\subsubsection{The Poisson distribution}
+\subsubsection{The two-Poisson model}
+\subsubsection{The K mixture}
+\subsubsection{Inverse document frequency}
+\subsubsection{Residual inverse document frequency}
+\subsubsection{Usage of term distribution models}
+\subsection{Latent Semantic Indexing}
+\subsubsection{Least-squares methods}
+\subsubsection{Singular Value Decomposition}
+\subsubsection{Latent Semantic Indexing in IR}
+\subsection{Discourse Segmentation}
+\subsubsection{TextTiling}
+\subsection{Further Reading}
+\subsection{Exercises}
+\newpage
+\section{Text Categorization}
+\subsection{Decision Trees}
+\subsection{Maximum Entropy Modeling}
+\subsubsection{Generalized iterative scaling}
+\subsubsection{Application to text categorization}
+\subsection{Perceptrons}
+\subsection{k Nearest Neighbor Classification}
+\subsection{Further Reading}
+\section*{Bibliography}
+\section*{Index}
+
+
+
+
+\end{document}
