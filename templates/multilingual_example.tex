@@ -1,0 +1,145 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  to be compiled with xelatex   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt]{scrartcl}
+
+\usepackage{silence}
+\WarningFilter{latex}{Command \InputIfFileExists}
+
+%%% For accessing system, OTF and TTF fonts
+%%% (would have been loaded by polylossia anyway)
+\usepackage{fontspec}
+\usepackage{xunicode} %% loading this first to avoid clash with bidi/arabic
+
+%%% For language switching -- like babel, but for xelatex
+\usepackage{polyglossia}
+
+%%% For the xelatex (and other LaTeX friends) logos
+\usepackage{hologo}
+
+%%% For the awesome fontawesome icons!
+\usepackage{fontawesome}
+
+\usepackage[hyphens]{url}
+
+
+\setmainlanguage{english}
+\setotherlanguages{arabic,hindi,sanskrit,greek,thai} %% or other languages
+
+
+% Main serif font for English (Latin alphabet) text
+\setmainfont{Noto Serif}
+\setsansfont{Noto Sans}
+\setmonofont{Noto Mono}
+
+% define fonts for other languages
+\newfontfamily\arabicfont[Script=Arabic]{Noto Naskh Arabic}
+\newfontfamily\devanagarifont[Script=Devanagari]{Noto Serif Devanagari}
+% \newfontfamily\greekfont[Script=Greek]{GFS Artemisia}
+\newfontfamily\thaifont[Script=Thai]{Noto Serif Thai}
+
+
+%%% CJK needs a different treatment
+\usepackage[space]{xeCJK}
+
+%%% Assuming Chinese is the main CJK language...
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+
+%%% Define fonts for Japanese and Korean
+\newCJKfontfamily\japanesefont{Noto Serif CJK JP}
+
+%%% You can also upload your own font files
+% \newCJKfontfamily\koreanfont{[UnGraphic.ttf]}
+%%% ...or go along with a font available on the server
+\newCJKfontfamily\koreanfont{Noto Serif CJK KR}
+
+
+
+\title{How to Write Multilingual Text with Different Scripts in \LaTeX{} using Polyglossia}
+\author{Lim Lian Tze}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+This is a mainly English document which contains other languages. Here we use \texttt{polyglossia} and \texttt{fontspec}. 
+
+You'll need to use \hologo{XeLaTeX} or \hologo{LuaLaTeX} to compile this document. You can configure your Overleaf project to be compiled with \hologo{XeLaTeX} by clicking on the Overleaf menu button above the file list panel, and set \texttt{Compiler} to \texttt{XeLaTeX} or \texttt{LuaLaTeX}.
+
+
+
+\section{Arabic}
+Here's some Arabic text:
+
+%% Arabic lorem ipsum text from http://generator.lorem-ipsum.info/_arabic
+%% Note capital "A"rabic
+\begin{Arabic}
+بعد هامش وإقامة المتحدة و, أم السادس وبالرغم فقد. بعد أن صفحة شمال بداية, أسر حصدت تزامناً ما. ٣٠ نقطة المحيط بمحاولة مكن, مع شمال يتبقّ تحت. خلاف أكثر دون من, الأرض أعلنت فرنسية ٣٠ على.
+\end{Arabic}
+
+
+
+\section{Hindi}
+
+Here's some Hindi:
+
+%% Hindi lorem ipsum text from http://generator.lorem-ipsum.info/_hindi
+\begin{hindi}
+जैसी जिम्मे ऎसाजीस दिनांक विवरण जनित बाटते भारतीय विचरविमर्श बढाता विषय वर्णित पुष्टिकर्ता किया बनाने ज्यादा लचकनहि पुर्णता वातावरण व्याख्या संस्क्रुति होभर चिदंश होसके अधिकार उसीएक् बीसबतेबोध अपनि हमेहो। संस्थान उपलब्धता बनाकर करने अपने प्राण समस्याओ बीसबतेबोध उपयोगकर्ता आशाआपस असक्षम बनाति देते बनाने सिद्धांत बीसबतेबोध ढांचामात्रुभाषा कर्य
+\end{hindi}
+
+\section{Sanskrit}
+And here's some Sanskrit:
+
+\begin{sanskrit}
+सर्वे मानवाः स्वतन्त्राः समुत्पन्नाः वर्तन्ते अपि च, गौरवदृशा अधिकारदृशा च समानाः एव वर्तन्ते।
+\end{sanskrit}
+
+
+\section{CJK}
+Here's some Chinese:
+
+人有悲欢离合，月有阴晴圆缺。此事古难全，但愿人长久，千里共婵娟。
+
+
+Japanese:
+
+{\japanesefont 露の世は、露の世ながら、さりながら。}
+
+
+Korean:
+
+{\koreanfont 피어나는 그들에게 바로 있음으로써 우리는 든 설레는 스며들어 칼이다}
+
+
+\section{Greek}
+Here's some Greek:
+
+%% Lorem ipsum from http://generator.lorem-ipsum.info/_greek
+\begin{greek}
+Οδιο διστα ιμπεδιτ φιμ ει, αδ φελ αβχορρεανθ ελωκυενθιαμ, εξ εσε εξερσι γυβεργρεν ηας. Ατ μει σολετ σριπτορεμ. Ιυς αλια λαβωρε θε. Σιθ κυωτ νυσκυαμ ιρασυνδια αν, ωμνιυμ ελιγενδι ιν πρι. Παρτεμ φερθερεμ συσιπιαντυρ εξ ιυς, ναμ τωλλιτ ιυφαρεθ αδφερσαριυμ εα, πρω πρωπριαε σαεφολα ιδ. Ατ πρι δολορ νυσκυαμ.
+\end{greek}
+
+
+
+\section{Thai}
+Here's some Thai:
+
+%% Lorem ipsum from http://lorem.in.th/
+\begin{thai}
+\XeTeXlinebreaklocale "th"
+\raggedright
+คอรัปชันจุ๊ยโปรดิวเซอร์ สถาปัตย์จ๊าบ แจ็กพ็อต ม้าหินอ่อน ซากุระคันถธุระ ฟีดสตาร์ท งี้ บอยคอตอิ่มแปร้สังโฆคำสาปแฟนซี ศิลปวัฒนธรรมไฟลท์จิ๊กโก๋กับดัก เจลพล็อตมาม่าซากุระดีลเลอร์ ซีนดัมพ์ แฮปปี้ เอ๊าะอุรังคธาตุซิม ฟินิกซ์เทรลเล่อร์อวอร์ด แคนยอนสมาพันธ์ ครัวซองฮัมอาข่าเอ็กซ์เพรส 
+\end{thai}
+
+
+\section{How Do I Know What Fonts are Available on Overleaf?}
+
+You can check the list here: \url{https://www.overleaf.com/help/193}
+
+Tip: We have the Noto fonts!!
+
+\end{document}
