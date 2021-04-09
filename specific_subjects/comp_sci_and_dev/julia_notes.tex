@@ -9,6 +9,7 @@
 \usepackage{bbm}
 \usepackage{stmaryrd}
 \usepackage{mathtools}
+\usepackage{verbatim}
 
 \newcommand{\followup}[1]{\textcolor{red}{ #1 }}
 \newcommand{\Ubr}[2]{\underbrace{ #1 }_{\mathclap{\text{ #2 }}}}
@@ -16,7 +17,7 @@
 
 \geometry{margin=2cm}
 
-\title{Title - Study Notes}
+\title{Julia (Programming Language) - Study Notes}
 \author{Isaac Riley}
 \date{Last edited: \today}
 
@@ -25,24 +26,18 @@
 \tableofcontents
 \newpage
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\setcounter{section}{-1}
-\section{First Section}
-
 %========================================================
-\subsection{}
-
 %--------------------------------------------------
-\subsubsection{}
 
-
-
-
-
-
-
-
+\section{Articles and Blogs}
+Julia's mutually-reinforcing triad (\href{https://redrapids.medium.com/why-is-julias-flux-catching-fire-for-ml-8763848df90c}{link}):
+\begin{itemize}
+    \item transparent
+    \item performant
+    \item productive
+\end{itemize}
+\\~\\
+\noindent\texttt{using Foo} imports the entire namespace, unlike in Python. However, the very Pythonic \texttt{import Foo as Bar} is now possible in Julia. This is mostly useful when the package name conflicts with an identifier; abbreviations were already possible thanks to the keyword \textt{const}.
 
 \end{document}

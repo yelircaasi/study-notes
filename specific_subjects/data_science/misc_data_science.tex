@@ -6,7 +6,9 @@
 \usepackage{fancyhdr}
 \usepackage[margin=3cm]{geometry}
 \usepackage{todonotes}
+\usepackage{hyperref}
 
+\newcommand{\followup}[1]{\textcolor{red}{ #1 }}
 \newcommand{\vecv}{\textbf{v}}
 \newcommand{\vecu}{\textbf{u}}
 \newcommand{\vecw}{\textbf{w}}
@@ -75,8 +77,27 @@ Accuracy = $\dfrac{\tp+\tn}{\tp+\fp+\tn+\fn} = \dfrac{\textrm{true}}{\textrm{tot
 &= \dfrac{\tp}{\tp+\dfrac{\fp+\fn}{2}}
 \end{align*}
 
-\section{}
-
+\newpage
+\section{Data Privacy and Security}
+Several approaches to address privacy concerns in data science (\href{https://analyticsindiamag.com/top-technologies-to-achieve-security-and-privacy-of-sensitive-data-in-ai-models/}{link}):
+\begin{itemize}
+    \item \textbf{Differential Privacy}: make individuals in a dataset impossible to identify by adding enough (mathematically guaranteed) noise; preserves relationships within the dataset, which are often the key insight to be derived from the data
+    \item \textbf{Secure Multi-Party Computation}: parties contribute private inputs to a shared function; only the output is shared $\rightarrow$ \followup{see also \href{http://bid.berkeley.edu/projects/p4p/papers/duan08sdm.pdf}{Zero-Knowledge Proofs algorithm}}
+    \item \textbf{Federated Learning}: method for training ML models in a distributed fashion without uploading private user data; roughly as follows: 
+    \begin{itemize}
+        \item download the current model
+        \item model learns from data on the user device
+        \item model summarises changes as a small, focused update
+        \item only the update is transferred to the cloud (encrypted connection)
+        \item all user updates are aggregated and used to improve the shared model
+    \end{itemize}
+    $\rightarrow$ \followup{\href{https://www.tensorflow.org/federated}{TensorFlow Federated}}
+    \item \textbf{Homomorphic Encryption}: essentially, keeping the data encrypted throughtout the ML process, and only decrypting the output at the end with the required decryption key \\
+    $\rightarrow$ trade-offs with performance, protection and utility
+    \item Blockchain: I don't quite understand the details of this yet. One aspect is, of course, iinvolves using blockchain (distributed ledger) technologies to ensure data security and privacy throughout the ML process. The really interesting part, though, is that blockchain can be used for quality assurance with the data, automating a process that is typically done by hand. \\
+    $\rightarrow$ \followup {learn \href{https://analyticsindiamag.com/why-you-should-consider-blockchain-as-a-technology-to-learn/}{Blockchain}} 
+    $\rightarrow$ \followup{read \href{https://ieeexplore.ieee.org/abstract/document/8733072}{Securing Data With Blockchain and AI}}
+\end{itemize}
 
 
 \section{}
