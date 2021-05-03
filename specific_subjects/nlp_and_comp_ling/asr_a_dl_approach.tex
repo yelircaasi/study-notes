@@ -1,0 +1,292 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage[pagebackref=true]{hyperref}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{bbm}
+\usepackage{stmaryrd}
+\usepackage{mathtools}
+
+\newcommand{\followup}[1]{\textcolor{red}{ #1 }}
+\newcommand{\Ubr}[2]{\underbrace{ #1 }_{\mathclap{\text{ #2 }}}}
+\newcommand{\Br}[1]{\{ #1 \}}
+
+\geometry{margin=2cm}
+
+\title{Automatic Speech Recognition: A Deep Learning Approach - Study Notes}
+\author{Isaac Riley}
+\date{Last edited: \today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+%========================================================
+\subsection{Automatic Speech Recognition: A Bridge for Better Communication}
+
+%========================================================
+\subsection{Basic Architecture of ASR Systems}
+
+%========================================================
+\subsection{Book Organization}
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Gaussian Mixture Models}
+%========================================================
+\subsection{Random Variables}
+
+%========================================================
+\subsection{Gaussian and Gaussian-Mixture Random Variables}
+
+%========================================================
+\subsection{Parameter Estimation}
+
+%========================================================
+\subsection{Mixture of Gaussians as a Model for the Distrivution of Speech Features}
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Hidden Markov Models and the Variants}
+%========================================================
+\subsection{Introduction}
+
+%========================================================
+\subsection{Markov Chains}
+
+%========================================================
+\subsection{Hidden Markov Sequences and Models}
+
+%========================================================
+\subsection{EM Algorithm and Its Application to Learning HMM Parameters}
+
+%========================================================
+\subsection{Viterbi Algorithm for Decoding HMM State Sequences}
+
+%========================================================
+\subsection{The HMM and Variants for Generative Speech Modeling and Recognition}
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Deep Neural Networks}
+%========================================================
+\subsection{The Deep Neural Network Architecture}
+
+%========================================================
+\subsection{Parameter Estimation with Error Backpropagation}
+
+%========================================================
+\subsection{Practical Considerations}
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Advanced Model Initialization Techniques}
+%========================================================
+\subsection{Restricted Boltzmann Machines}
+
+%========================================================
+\subsection{Deep Belief Network Pretraining}
+
+%========================================================
+\subsection{Pretraining with Denoising Autoencoder}
+
+%========================================================
+\subsection{Discriminative Pretraining}
+
+%========================================================
+\subsection{Hybrid Pretraining}
+
+%========================================================
+\subsection{Dropout Pretraining}
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Deep Neural Network-Hidden Markov Model Hybrid Systems}
+%========================================================
+\subsection{DNN-HMM Hybrid Systems}
+
+%========================================================
+\subsection{Key Components in the CD-DNN-HMM and Their Analysis}
+
+%========================================================
+\subsection{Kullback-Leibler Divergence-Based HMM}
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Training and Decoding Speedup}
+%========================================================
+\subsection{Training Speedup}
+
+%========================================================
+\subsection{Decoding Speedup}
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Deep Neural Network Sequence-Discriminative Training}
+%========================================================
+\subsection{Sequence-Discriminative Training Criteria}
+
+%========================================================
+\subsection{Practical Considerations}
+
+%========================================================
+\subsection{Noise Contrastive Estimation}
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Feature Representation Learning in Deep Neural Networks}
+%========================================================
+\subsection{Joint Learning of Feature Representation and Classifier}
+
+%========================================================
+\subsection{Feature Hierarchy}
+
+%========================================================
+\subsection{Flexibility in Using Arbitrary Input Features}
+
+%========================================================
+\subsection{Robustness of Features}
+
+%========================================================
+\subsection{Robustness across All Conditions}
+
+%========================================================
+\subsection{Lack of Generalization over Large Distortions}
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fuse Deep Neural Network and Gaussian Mixture Model Systems}
+%========================================================
+\subsection{Use DNN-Derived Features in GMM-HMM Systems}
+
+%========================================================
+\subsection{Fuse Recognition Results}
+
+%========================================================
+\subsection{Fuse Frame-Level Acoustic Scores}
+
+%========================================================
+\subsection{Multistream Speech Recognition}
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Adaptation of Deep Neural Networks}
+%========================================================
+\subsection{The Adaptation Problem for Deep Neural Networks}
+
+%========================================================
+\subsection{Linear Transformations}
+
+%========================================================
+\subsection{Linear Hidden Networks}
+
+%========================================================
+\subsection{Conservative Training}
+
+%========================================================
+\subsection{Subspace Methods}
+
+%========================================================
+\subsection{Effectiveness of DNN Speaker Adaptation}
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Representation Sharing and Transfer in Deep Neural Networks}
+%========================================================
+\subsection{Multitask and Transfer Learning}
+
+%========================================================
+\subsection{Multilingual and Crosslingual Speech Recognition}
+
+%========================================================
+\subsection{Multiobjective Training of Deep Neural Networks for Speech Recognition ***}
+
+%========================================================
+\subsection{Robust Speech Recognition Exploiting Audio-Visual Information}
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Recurrent Neural Networks and Related Models}
+%========================================================
+\subsection{Introduction}
+
+%========================================================
+\subsection{State-Space Formulation of the Basic Recurrent Neural Network}
+
+%========================================================
+\subsection{The Backpropagation-Through-Time Learning Algorithm}
+
+%========================================================
+\subsection{A Primal-Dual Technique for Learning Recurrent Neural Networks}
+
+%========================================================
+\subsection{Recurrent Neural Networks Incorporating LSTM Cells}
+
+%========================================================
+\subsection{Analyzing Recurrent Neural Networks - A Contrastive Approach}
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Computational Network}
+%========================================================
+\subsection{Computational Network}
+
+%========================================================
+\subsection{Forward Computation}
+
+%========================================================
+\subsection{Model Training}
+
+%========================================================
+\subsection{Typical Computation Nodes}
+
+%========================================================
+\subsection{Convolutional Neural Network}
+
+%========================================================
+\subsection{Recurrent Connections}
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Summary and Future Directions}
+%========================================================
+\subsection{Road Map}
+
+%========================================================
+\subsection{State of the Art and Future Directions}
+
+
+%--------------------------------------------------
+%\subsubsection{}
+
+
+
+
+
+
+
+
+
+\end{document}
