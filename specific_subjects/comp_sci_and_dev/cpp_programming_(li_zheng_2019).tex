@@ -1,0 +1,358 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage[pagebackref=true]{hyperref}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{bbm}
+\usepackage{stmaryrd}
+\usepackage{mathtools}
+\usepackage[dvipsnames]{xcolor}
+
+\newcommand{\followup}[1]{\textcolor{red}{#1}}
+\newcommand{\obs}[1]{\textcolor{ForestGreen}{\textbf{#1}}}
+\newcommand{\Ubr}[2]{\underbrace{ #1 }_{\mathclap{\text{ #2 }}}}
+\newcommand{\Br}[1]{\{ #1 \}}
+
+\geometry{margin=2cm}
+
+\title{C++ Programming (Li Zheng et al. 2019) - Study Notes}
+\author{Isaac Riley}
+\date{Last edited: \today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%========================================================
+
+%--------------------------------------------------
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+%========================================================
+\subsection{The Development of Computer Programming Languages}
+\begin{itemize}
+    \item \obs{Interesting phrasing: assembly language and high-level languages as ``closing the gap'' between computers and machines}
+    \item Dichotomy: static vs dynamic features
+\end{itemize}
+
+%========================================================
+\subsection{Object-Oriented Method}
+Structured programming:
+\begin{itemize}
+    \item refinement of procedural programming
+    \item two main ideas: 
+    \begin{enumerate}  
+        \item top-down structure
+        \item stepwise refinement
+    \end{enumerate}
+    \item 3 basic structures:
+    \begin{enumerate}
+        \item sequential structure
+        \item branch structure
+        \item loop structure
+    \end{enumerate}
+    \item \obs{object: data and its operations as an interdependent and inseparable whole}
+    \item \obs{class: abstraction of object; class : object $\sim$ mold : cast}
+    \item \obs{encapsulation: hide certain aspects; ``show'' only what is necessary;  provide clean interface for interacting with the object}
+    \item \obs{inheritance: make it possible to create a new class from an old class, which will inherit the characteristics of the old (base) class; facilitates reusability}
+    \item \obs{polymorphism: allowing for variability in object characteristics across inheritance}
+\end{itemize}
+
+
+%========================================================
+\subsection{Object-Oriented Software Development}
+abbreviations:
+\begin{itemize}
+    \item OOA: object-oriented analysis
+    \item OOD: 
+    \item OOP: 
+    \item OOT: 
+    \item OOSM: 
+    \item 
+\end{itemize}
+
+%========================================================
+\subsection{Representation and Storage of Information}
+
+
+%========================================================
+\subsection{The Development and Process of Programs}
+
+
+%========================================================
+\subsection{Summary}
+
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Elementary C++ Programming}
+%========================================================
+\subsection{An Overview of C++ Language}
+
+%========================================================
+\subsection{Basic Data Types and Expressions}
+
+%========================================================
+\subsection{Data Input and Output}
+
+%========================================================
+\subsection{The Fundamental Control Structures of Algorithms}
+
+%========================================================
+\subsection{User-Defined Data Type}
+
+%========================================================
+\subsection{Summary}
+
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Functions}
+%========================================================
+\subsection{Definition and Use of Function}
+
+%========================================================
+\subsection{Inline Functions}
+
+%========================================================
+\subsection{Default Formal Parameters in Functions}
+
+%========================================================
+\subsection{Function Overloading}
+
+%========================================================
+\subsection{Using C++ System Functions}
+
+%========================================================
+\subsection{Summary}
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Class and Object}
+%========================================================
+\subsection{Basic Features of Object-Oriented Design}
+
+%========================================================
+\subsection{Class and Object}
+
+%========================================================
+\subsection{Constructor and Destructor}
+
+%========================================================
+\subsection{Combination of Classes}
+
+%========================================================
+\subsection{UML}
+
+%========================================================
+\subsection{Program Instance – Personnel Information Management Program}
+
+%========================================================
+\subsection{Summary}
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Data Sharing and Protecting}
+%========================================================
+\subsection{Scope and Visibility of Identifiers}
+
+%========================================================
+\subsection{Lifetime of Object}
+
+%========================================================
+\subsection{Static Members of Class}
+
+%========================================================
+\subsection{Friend of Class}
+
+%========================================================
+\subsection{Protection of Shared Data}
+
+%========================================================
+\subsection{Multifile Structure and Compilation Preprocessing Directives}
+
+%========================================================
+\subsection{Example – Personnel Information Management Program}
+
+%========================================================
+\subsection{Summary}
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Arrays, Pointers, and Strings}
+%========================================================
+\subsection{Arrays}
+
+%========================================================
+\subsection{Pointers}
+
+%========================================================
+\subsection{Dynamic Memory Allocation}
+
+%========================================================
+\subsection{Deep Copy and Shallow Copy}
+
+%========================================================
+\subsection{Strings}
+
+%========================================================
+\subsection{Program Example – Personnel Information Management Program}
+
+%========================================================
+\subsection{Summary}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Inheritance and Derivation}
+%========================================================
+\subsection{Inheritance and Derivation of Class}
+
+%========================================================
+\subsection{Access Control}
+
+%========================================================
+\subsection{Type Compatible Rule}
+
+%========================================================
+\subsection{Constructor and Destructor of Derived Class}
+
+%========================================================
+\subsection{Identification and Access of Derived-Class Member}
+
+%========================================================
+\subsection{Program Example: Solving Linear Equations using Gaussian Elimination Method}
+
+%========================================================
+\subsection{Program Example: Personnel Information Management Program}
+
+%========================================================
+\subsection{Summary}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Polymorphism}
+%========================================================
+\subsection{An Overview of Polymorphism}
+
+%========================================================
+\subsection{Operator Overload}
+
+%========================================================
+\subsection{Virtual Function}
+
+%========================================================
+\subsection{Abstract Classes}
+
+%========================================================
+\subsection{Program Instance: Variable Stepwise Trapezoid Method to Calculate Functional Definite Integral}
+
+%========================================================
+\subsection{Program Instance: Improvement on Staff Information Management System for a Small Corporation}
+
+%========================================================
+\subsection{Summary}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Collections and Their Organization}
+%========================================================
+\subsection{Function Templates and Class Templates}
+
+%========================================================
+\subsection{Linear Collection}
+
+%========================================================
+\subsection{Organizing Data in Linear Collections}
+
+%========================================================
+\subsection{Application – Improving the HR Management Program of a Small Company}
+
+%========================================================
+\subsection{Summary}
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Generic Programming and the Standard Template Library}
+%========================================================
+\subsection{Generic Programming}
+
+%========================================================
+\subsection{Containers in STL}
+
+%========================================================
+\subsection{Iterators}
+
+%========================================================
+\subsection{Algorithms in STL}
+
+%========================================================
+\subsection{Function Objects}
+
+%========================================================
+\subsection{Application – Improving the HR Management Program of a Small Company}
+
+%========================================================
+\subsection{Summary}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The I/O Stream Library and Input/Output}
+%========================================================
+\subsection{I/O Stream’s Concept and the Structure of a Stream Library}
+
+%========================================================
+\subsection{Output Stream}
+
+%========================================================
+\subsection{Input Stream}
+
+%========================================================
+\subsection{Input/output Stream}
+
+%========================================================
+\subsection{Example-improve Employee Information Management System}
+
+%========================================================
+\subsection{Summary}
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Exception Handling}
+%========================================================
+\subsection{Basic Concepts of Exception Handling}
+
+%========================================================
+\subsection{The Implementation of Exception Handling in C++}
+
+%========================================================
+\subsection{Destruction and Construction in Exception Handling}
+
+%========================================================
+\subsection{Exception Handling of Standard Library}
+
+%========================================================
+\subsection{Program Example Improvement to Personal Information Administration Program in a Small Company}
+
+%========================================================
+\subsection{Summary}
+
+
+\end{document}
