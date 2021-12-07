@@ -1,0 +1,1031 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage[pagebackref=true]{hyperref}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{bbm}
+\usepackage{xcolor}
+\usepackage{stmaryrd}
+\usepackage{mathtools}
+
+\newcommand{\Ubr}[2]{\underbrace{ #1 }_{\mathclap{\text{ #2 }}}}
+\newcommand{\Br}[1]{\{\, #1 \,\}}
+\newcommand{\R}{\mathbbm{R}}
+\newcommand{\Z}{\mathbbm{Z}}
+\newcommand{\N}{\mathbbm{N}}
+\newcommand{\Q}{\mathbbm{Q}}
+\newcommand{\M}[1]{ \begin{bmatrix} #1 \end{bmatrix} }
+\newcommand{\vsp}[1]{\vspace{#1mm}\\}
+\newcommand{\vecx}{\textbf{x}}
+\newcommand{\vecy}{\textbf{y}}
+\newcommand{\vecz}{\textbf{z}}
+\newcommand{\veco}{\textbf{0}}
+\newcommand{\veca}{\textbf{a}}
+\newcommand{\vecb}{\textbf{b}}
+\newcommand{\vecc}{\textbf{c}}
+\newcommand{\vece}{\textbf{e}}
+\newcommand{\matA}{\textbf{A}}
+\newcommand{\matB}{\textbf{B}}
+%\newcommand{\tab}[2]{\begin{tabular}{#1} #2 \end{tabular}}
+\newcommand{\inv}{^{-1}}
+\newcommand{\pr}{^\prime}
+\newcommand{\image}{\textrm{Im}}
+\newcommand{\stsum}{\sum_{i=1}^n}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\rr}[1]{\tiny \stackrel{\tiny #1}{\xrightarrow{\hspace{6mm}}}}
+%\newcommand{\arr}[1]{\stackrel{#1}{\longrightarrow}}
+
+\geometry{margin=2cm}
+
+\title{Math for Machine Learning - Solutions to Exercises}
+\author{Isaac Riley}
+%\date{August 2020}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{section}{1}
+\newpage%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Linear Algebra}
+%>>>>>>>>>>>>>>   2.1  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+We consider $(\R \setminus \Br{-1}, \star)$, where 
+\begin{equation} \tag{2.134}
+a \star b := ab+a+b, \hspace{1cm} a,b \in \R \setminus \Br{>1}
+\end{equation}
+\begin{itemize}
+ \item [a.] Show that $(\R \setminus \Br{-1}, \star)$ is an Abelian group.
+ \item [b.] Solve 
+\begin{equation*}
+3 \star x \star x = 15
+\end{equation*}
+in the Abelian group $(\R \setminus \Br{-1}, \star)$, where $\star$ is defined in (2.134).
+\end{itemize}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+\begin{itemize}
+ \item [a.] 
+ \item [b.] 
+\end{itemize}
+}
+%>>>>>>>>>>>>>>   2.2  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Let $n$ be in $\N \setminus \Br{0}$. Let $k,x$ be in $\Z$. We define the congruence class $\overline{k}$ of the integer $k$ as the set
+\begin{align*}
+\overline{k} &= \Br{ x \in \Z \mid x-k=0 (\mod n) } \vspace{1mm}\\
+&= \Br{ x \in \Z \mid \exists a \in \Z: (x-k = n \cdot a) }.
+\end{align*}
+We now define $\Z / n\Z$ (sometimes written $\Z_n$) as the set of all congruence classes modulo $n$. Euclidean division implies that this set is a finite set containing $n$ elements:
+$$\Z_n = \Br{\overline{0}, \overline{1},...,\overline{n-1}}$$
+For all $\overline{a}, \overline{b} \in \Z_n$, we define 
+$$\overline{a} \oplus \overline{b} := \overline{a+b}$$
+\begin{itemize}
+ \item [a.] Show that $(Z_n,\oplus)$ is a group. Is it Abelian?
+ \item [b.] We now define another operation $\otimes$ for all $\overline{a}$ and $\overline{b}$ in $\Z_n$ as 
+ $$\overline{a} \otimes \overline{b} = \overline{a \times b},$$
+ where $a \times b$ represents the usual multiplication in $\Z$.\\
+ Let $n=5$. Draw the times table of the elements of $\Z_5 \setminus \Br{\overline{0}}$ under $\otimes$, i.e., calculate the products $\overline{a} \otimes \overline{b}$ for all $\overline{a}$ and $\overline{b}$ in $\Z_5 \setminus \Br{\overline{0}}$.\\
+ Hence, show that $\Z_5 \setminus \Br{\overline{0}}$ is closed under $\otimes$ and possesses a neutral element for $\otimes$. 
+ Display the inverse of all elements in $\Z_5 \setminus \Br{\overline{0}}$ under $\otimes$.\\
+ Conclude that $(\Z_5 \setminus \Br{\overline{0}}, \otimes)$ is an Abelian group.
+ \item [c.] Show that $\Z_8 \setminus \Br{\overline{0}}, \otimes$ is not a group.
+ \item [d.] We recall that the Bézout theorem states that two integers $a$ and $b$ are relatively prime (i.e., $gcd(a,b)=1$) if an only if there exist two integers $u$ and $v$ such that $au+bv=1$. Show that $(\Z_n \setminus \Br{\overline{0}, \otimes})$ is a group if and only if $n \in \N \setminus \Br{0}$ is prime.
+\end{itemize}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+\begin{itemize}
+ \item [a.] 
+ \item [b.] 
+ \item [c.] 
+ \item [d.] 
+\end{itemize}
+}
+%>>>>>>>>>>>>>>   2.3  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Consider the set $\mathcal{G}$ of $3 \times 3$ matrices defined as follows:
+$$\mathcal{G} = \left\{ \, \M{1&x&z\\0&1&y\\0&0&1} \in \R^{3 \times 3} \, \middle| \, x,y,z \in \R \, \right\}$$
+We define $\cdot$ as the standard matrix multiplication.\\
+Is $(\mathcal{G},\cdot)$ a group? If yes, is it Abelian? Justify your answer.
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\vsp{3}
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   2.4  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Compute the following matrix products, if possible:
+\begin{itemize}
+ \item [a.] $\M{1&2\\4&5\\7&8} \M{1&1&0\\0&1&1\\1&0&1}$
+ \item [b.] $\M{1&2&3\\4&5&6\\7&8&9} \M{1&1&0\\0&1&1\\1&0&1}$
+ \item [c.] $\M{1&1&0\\0&1&1\\1&0&1} \M{1&2&3\\4&5&6\\7&8&9}$
+ \item [d.] $\M{1&2&1&2\\4&1&-1&-4} \M{0&3\\1&-1\\2&1\\5&2}$
+ \item [e.] $\M{0&3\\1&-1\\2&1\\5&2} \M{1&2&1&2\\4&1&-1&-4}$
+\end{itemize}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+\begin{itemize}
+ \item [a.] 
+ \item [b.] 
+ \item [c.] 
+ \item [d.] 
+ \item [e.]
+\end{itemize}
+}
+%>>>>>>>>>>>>>>   2.5  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Find the set $\mathcal{S}$ of all solutions in $x$ of the following inhomogeneous linear systems $\matA \veca = \vecb$, where $\matA$ and $\vecb$ are defined as follows:
+\begin{itemize}
+ \item [a.] $$\matA = \M{1&1&-1&-1\\2&5&-7&-5\\2&-1&1&3\\5&2&-4&2}, \vecb = \M{1\\-2\\4\\6}$$
+ \item [b.] $$\matA = \M{1&-1&0&0&1\\1&1&0&-3&0\\2&-1&0&1&-1\\-1&2&0&-2&-1}, \vecb = \M{3\\6\\5\\-1}$$
+\end{itemize}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+\begin{itemize}
+ \item [a.] 
+ \item [b.] 
+\end{itemize}
+}
+%>>>>>>>>>>>>>>   2.6  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Using Gaussian elimination, find all solutions of the inhomogeneous equation system $\matA \vecx=\vecb$ with
+$$\matA = \M{0&1&0&0&1&0\\0&0&0&1&1&0\\0&1&0&0&0&1}, \vecb = \M{2\\-1\\1}$$
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   2.7  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Find all solutions in $\vecx = \M{x_1\\x_2\\x_3} \in \R^3$ of the equation system $\matA \vecx = 12 \vecx$, where 
+$$\matA = \M{6&4&3\\6&0&9\\0&8&0}$$
+and $\sum_{i=1}^3 x_i = 1$.
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   2.8  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Determine the inverses of the following matrices if possible:
+\begin{itemize}
+ \item [a.] $$\matA = \M{2&3&4\\3&4&5\\4&5&6}$$
+ \item [b.] $$\matA = \M{1&0&1&0\\0&1&1&0\\1&1&0&1\\1&1&1&0}$$
+\end{itemize}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+\begin{itemize}
+ \item [a.] 
+ \item [b.] 
+\end{itemize}
+}
+%>>>>>>>>>>>>>>   2.9  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Which if the following sets are subspaces of $\R$?
+\begin{itemize}
+ \item [a.] $A = \Br{(\lambda,\lambda+\mu^3,\lambda-\mu^3) \mid \lambda, \mu \in \R}$
+ \item [b.] $B = \Br{(\lambda^2, -\lambda^2,0) \mid \lambda \in \R}$
+ \item [c.] Let $\gamma$ be in $\R$. \\ $C = \Br{(\xi_1,\xi_2, \xi_3) \in \R^3 \mid \xi_1-2\xi_2+3\xi_3 = \gamma}$
+ \item [d.] $D = \Br{(\xi_1,\xi_2, \xi_3) \in \R^3 \mid \xi_2 \in \Z}$
+\end{itemize}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+\begin{itemize}
+ \item [a.] 
+ \item [b.] 
+ \item [c.] 
+ \item [d.] 
+\end{itemize}
+}
+%>>>>>>>>>>>>>>  2.10  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Are the following sets of vectors linearly independent?
+\begin{itemize}
+ \item [a.] $$\vecx_1 = \M{2\\-1\\3}, \;\; \vecx_2 = \M{1\\1\\-2}, \vecx_3 = \M{3\\-3\\8}$$
+ \item [b.] $$\vecx_1 = \M{1\\2\\1\\0\\0}, \;\; \vecx_2 = \M{1\\1\\0\\1\\1}, \vecx_3 = \M{1\\0\\0\\1\\1}$$
+\end{itemize}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+\begin{itemize}
+ \item [a.] 
+ \item [b.] 
+\end{itemize}
+}
+%>>>>>>>>>>>>>>  2.11  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Write $$\vecy=\M{1\\-2\\5}$$ as a linear combination of $$\vecx_1 = \M{1\\1\\1}, \;\; \vecx_2 = \M{1\\2\\3}, \vecx_3 = \M{2\\-1\\1}$$
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>  2.12  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Consider two subspaces of $\R^4$:
+$$
+U_1 = \textrm{span}\left( \M{1\\1\\-3\\1}, \M{2\\-1\\0\\-1}, \M{-1\\1\\-1\\1} \right), \;\;\;\;
+U_2 = \textrm{span}\left( \M{-1\\-2\\2\\1}, \M{2\\-2\\0\\0}, \M{-3\\6\\-2\\-1} \right)
+$$
+Determine a basis of $U_1 \cap U_2$.
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>  2.13  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Consider two subspaces $U_1$ and $U_2$, where $U_1$ is the solution space of the homogeneous equation system $\matA_1 \vecx = \veco$ and $U_2$ is the solution space of the homogeneous equation system $\matA_2 \vecx = \veco$ with
+$$\matA_1 = \M{1&0&1\\1&-2&-1\\2&1&3\\1&0&1}, \;\;\;\; \matA_2 = \M{3&-3&0\\1&2&3\\7&-5&2\\3&-1&2}$$
+\begin{itemize}
+ \item [a.] Determine the dimension of $U_1,U_2$.
+ \item [b.] Determine bases of $U_1$ and $U_2$.
+ \item [c.] Determine a basis of $U_1 \cap U_2$.
+\end{itemize}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+\begin{itemize}
+ \item [a.] 
+ \item [b.] 
+ \item [c.] 
+\end{itemize}
+}
+%>>>>>>>>>>>>>>  2.14  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Consider two subspaces $U_1$ and $U_2$, where $U_1$ is spanned by the columns of $\matA_1$ and $U_2$ is spanned by the columns of $\matA_2$ with
+$$\matA_1 = \M{1&0&1\\1&-2&-1\\2&1&3\\1&0&1}, \;\;\;\; \matA_2 = \M{3&-3&0\\1&2&3\\7&-5&2\\3&-1&2}$$
+
+\begin{itemize}
+ \item [a.] Determine the dimension of $U_1,U_2$.
+ \item [b.] Determine bases of $U_1$ and $U_2$.
+ \item [c.] Determine a basis of $U_1 \cap U_2$.
+\end{itemize}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+\begin{itemize}
+ \item [a.] Row reduction of $\matA_1$: \vsp{2}
+$\M{1&0&1\\1&-2&-1\\2&1&3\\1&0&1}
+\rightarrow
+\M{R_1\\R_2-R_1\\R_3-2R_1\\R_4-R_1}
+=
+\M{1&0&1\\0&-2&-2\\0&1&1\\0&0&0}
+\rightarrow
+\M{R_1\\-\frac{1}{2}R_2\\R_3+\frac{1}{2}R_2\\R_4}
+=
+\M{1&0&1\\0&1&1\\0&0&0\\0&0&0}
+$
+\vsp{2}                $\Rightarrow \dim(U_1) = 2$ because $\matA_1$ is row equivalent to a matrix with two pivots.
+\vsp{3}
+Row reduction of $\matA_2$: \vsp{2}
+$\M{3&-3&0\\1&2&3\\7&-5&2\\3&-1&2}
+\rightarrow
+\M{\frac{1}{3}R_1\\R_2-\frac{1}{3}R_1\\R_3-\frac{7}{3}R_1\\R_4-R_1}
+=
+\M{1&-1&0\\0&3&3\\0&2&2\\0&-2&2}
+\rightarrow
+\M{R_1\\\frac{1}{3}R_2\\R_4+R_3\\R_3-\frac{2}{3}R_2}
+=
+\M{1&0&1\\0&1&1\\0&0&4\\0&0&0}
+\vsp{3}
+\rightarrow
+\M{R_1-\frac{1}{4}R_3\\R_2-\frac{1}{4}R_3\\\frac{1}{4}R_3\\R_4}
+=
+\M{1&0&0\\0&1&0\\0&0&1\\0&0&0}
+$
+\vsp{2}                $\Rightarrow \dim(U_2) = 3$ because $\matA_2$ is row equivalent to a matrix with three pivots.
+ \item [b.] We can use the pivot columns of the RREF matrices calculated in part (a) as bases for $U_1$ and $U_2$, respectively.
+ \item [c.] Since $U_2$ is a 3-dimensional subspace of $\R^4$ and $U_1$ is only a 2-dimensional subspace of $\R^4$, $U_1$ is also a subspace of $U_2$.
+ This means that $U_1 \cap U_2 = U_1$, so we can use the basis for $U_1$ that we found in part (b).
+\end{itemize}
+}
+%>>>>>>>>>>>>>>  2.15  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Let $F = \Br{(xy,z) \in R^3 \mid x+y-z=0}$ and $G = \Br{(a-b,a+b,a-3b) \mid a,b \in \R}$
+\begin{itemize}
+ \item [a.] Show that $F$ and $G$ are subspaces of $\R^3$.
+ \item [b.] Calculate $F \cap G$ without resorting to any basis vector.
+ \item [c.] Find one basis for $F$ and $G$, calculate $F \cap G$ using the basis vectors previously found and check your result with the previous question.
+\end{itemize}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+\begin{itemize}
+ \item [a.] 
+ \item [b.] 
+ \item [c.] 
+\end{itemize}
+}
+%>>>>>>>>>>>>>>  2.16  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Are the following mappings linear?
+\begin{itemize}
+ \item [a.] Let $a,b, \in \R$.
+                \begin{align*}
+                \Phi: L^1([a,b]) &\rightarrow \R \\
+                f &\mapsto \Phi(f) = \int_a^b f(x)dx,
+                \end{align*}
+                where $L^1([a,b])$ denotes the set of integrable functions on $[a,b]$.
+ \item [b.] \begin{align*}
+                \Phi: L^1: C^1 &\rightarrow C^0\\
+                f &\mapsto \Phi(f) = f\pr
+                \end{align*}
+                where for $k. \geq 1$, $C^k$ denotes the set of $k$ times continuously differentiable functions, and $C^0$ denotes the set of continuous functions.
+ \item [c.] \begin{align*}
+                \Phi: \R &\rightarrow \R \\
+                x &\mapsto \Phi(x) = \cos(x)
+                \end{align*}
+ \item [d.] \begin{align*}
+                \Phi: \R^3 &\rightarrow \R^2 \\
+                x &\mapsto \M{1&2&3\\1&4&3}\vecx
+                \end{align*}
+ \item [e.] Let $\theta$ be in $[0,2\pi[$ and 
+                \begin{align*}
+                \Phi: \R^2 &\rightarrow \R^2 \\
+                \vecx &\mapsto \M{\cos(\theta)&\sin(\theta)\\-\sin(\theta)&\cos(\theta)} \vecx
+                \end{align*}
+\end{itemize}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+\begin{itemize}
+ \item [a.] 
+ \item [b.] 
+ \item [c.] 
+ \item [d.] 
+ \item [e.]
+\end{itemize}
+}
+%>>>>>>>>>>>>>>  2.17  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Consider the linear mapping
+\begin{align*}
+\Phi: \R^3 \rightarrow \R^4 \\
+\Phi \left(\M{x_1\\x_2\\x_3}\right) = \M{3x_1+2x_2+x_3\\x_1+x_2+x_3\\x_1-3x_2\\2x_1+3x_2+x_3}
+\end{align*}
+\begin{itemize}
+ \item Find the transformation matrix $\matA_\Phi$.
+ \item Determine rk$(\matA_\Phi)$.
+ \item Compute the kernel and image of $\Phi$. What are $\dim(\ker(\Phi))$ and $\dim(\image(\Phi))$?
+\end{itemize}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+\begin{itemize}
+ \item 
+ \item 
+ \item 
+\end{itemize}
+}
+%>>>>>>>>>>>>>>  2.18  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Let $E$ be a vector space. Let $f$ and $g$ be two automorphisms on $E$ such that $f \circ g = \textrm{id}_E$ (i.e. $f \circ g$ is the identity mapping $\textrm{id}_E$). Show that $\ker(f) = ker(g \circ f), \, \image(g) = \image(g \circ f)$ and that $\ker(f) \cap \image(g) = \Br{\veco_E}$.
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\vsp{3}
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>  2.19  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Consider and endomorphism $\Phi: \R^3 \rightarrow \R^3$ whose transformation matrix (with respect to the standard basis in $\R ^3$) is 
+$$\matA_\Phi = \M{1&1&0\\1&-1&0\\1&1&1}$$
+\begin{itemize}
+ \item [a.] Determine $\ker(\Phi)$ and $\image(\Phi)$.
+ \item [b.] Determine the transformation matrix $\tilde{\matA}_\Phi$ with respect to the basis 
+ $$B = \left( \M{1\\1\\1}, \M{1\\2\\1}, \M{1\\0\\0} \right),$$
+ i.e., perform a basis change toward the new basis $B$.
+\end{itemize}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+\begin{itemize}
+ \item [a.] 
+ \item [b.] 
+\end{itemize}
+}
+%>>>>>>>>>>>>>>  2.20  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Let us consider $\vecb_1,\vecb_2, \vecb_1\pr, \vecb_2\pr$, 4 vectors of $\R^2$ expressed in the standard basis of $\R^2$ as 
+$$\vecb_1 = \M{2\\1}, \;\; \vecb_2 = \M{-1\\1}, \;\; \vecb_1\pr = \M{2\\-2}, \;\; \vecb_2\pr = \M{1\\1}$$
+and let us define two ordered bases $B = (\vecb_1,\vecb_2)$ and $B\pr = (\vecb_1\pr,\vecb_2\pr)$ of $\R^2$.
+\begin{itemize}
+ \item [a.] Show that $B$ and $B\pr$ are two bases of $\R^2$ and draw those basis vectors.
+ \item [b.] Compute the matrix $\textbf{P}_1$ that performs a basis change from $B\pr$ to $B$.
+ \item [c.] We consider $\vecc_1, \vecc_2, \vecc_3$, three vectors of $\R^3$ defined in the standard basis of $\R^3$ as 
+ $$\vecc_1 = \M{1\\2\\-1}, \;\; \vecc_2 = \M{0\\-1\\2}, \;\; \vecc_3 = \M{1\\0\\-1}$$
+ and we define $C = (\vecc_1, \vecc_2, \vecc_3)$.
+ \begin{enumerate}
+  \item [(i)] Show that $C$ is a basis of $\R^3$, e.g. by using determinants (see section 4.1).
+  \item [(ii)] Let us call $C\pr = (\vecc_1\pr,\vecc_2\pr,\vecc_3\pr)$ the standard basis of $\R^3$. Determine the matrix $\textbf{P}_2$ that performs the basis change from $C$ to $C\pr$.
+ \end{enumerate}
+ \item [d.] We consider a homomorphism $\Phi: \R^2 \rightarrow \R^3$, such that
+ \begin{align*}
+  \Phi(\vecb_1 + \vecb_2) &= \vecc_2+\vecc_3 \\
+  \Phi(\vecb_1 - \vecb_2) &= \vecc_1-\vecc_2+\vecc_3 
+ \end{align*}
+ where $B = (\vecb_1,\vecb_2)$ and $C = (\vecc_1,\vecc_2,\vecc_3)$ are ordered bases of $\R^2$ and $\R^3$, respectively. \\
+ Determine the trnsormation matrix $\matA_\Phi$ of $\Phi$ with respect to the ordered bases $B$ and $C$.
+ \item [e.]Determine $\matA\pr$, the transformation matrix of $\phi$ with respect to the bases $\textbf{B}\pr$ and $\textbf{C}\pr$.
+ \item [f.] Let us consider the vector $x \in \R^2$ whose coordinates in $B\pr$ are $[2,3]^\top$. In other words, $\vecx = 2\vecb_1\pr +3\vecb_2\pr$.
+ \begin{enumerate}
+  \item [(i)] Calculate the coordinates of $\vecx$ in $B$.
+  \item [(ii)] Based on that, compute the coordinates of $\Phi(\vecx)$ expressed in $C$.
+  \item [(iii)] Then, write $\Phi(\vecx)$ in terms of $\vecc_1\pr, \vecc_2\pr, \vecc_3\pr$.
+  \item [(iv)] Use the representation of $\vecx$ in $B\pr$ and the matrix $\matA\pr$ to find this result directly.
+ \end{enumerate}
+\end{itemize}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+\begin{itemize}
+ \item [a.] 
+ \item [b.] 
+ \item [c.] 
+ \begin{enumerate}
+  \item [(i)] 
+  \item [(ii)] 
+ \end{enumerate}
+ \item [d.] 
+ \item [e.]
+ \item[f.]
+ \begin{enumerate}
+  \item [(i)]
+  \item [(ii)]
+  \item [(iii)]
+  \item [(iv)]
+ \end{enumerate}
+\end{itemize}
+}
+
+\newpage%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Analytic Geometry}
+%>>>>>>>>>>>>>>   3.1  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Show that $\left< \cdot,\cdot \right>$ defined for all $\vecx = [x_1, x_2]^\top \in R^2$ and $\vecy = [y_1,y_2]^top \in \R^2$ by
+$$\left< \vecx, \vecy \right> := x_1 y_1 - (x_1y_2 + x_2y_1) + 2(x_2y_2)$$
+is an inner product.
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\vsp{3}
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   3.2  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Consider $\R^2$ with $\left< \vecx, \vecy \right>$ defined for all $\vecx$ and $\vecy$ in $\R^2$ as
+$$\left< \vecx, \vecy \right> := \vecx^\top \Ubr{\M{2&0\\1&2}}{=: \matA} \vecy$$
+Is $\left< \cdot, \cdot \right>$ an inner product?
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\vsp{3}
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   3.3  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Compute the distance between
+$$\vecx=\M{1\\2\\3}, \;\; \vecy = \M{-1\\-1\\0}$$
+using
+\begin{itemize}
+ \item [a.] $\left< \vecx, \vecy \right> := \vecx^\top \vecy$
+ \item [b.] $\left< \vecx, \vecy \right> := \vecx^\top \matA \vecy, \matA := \M{2&1&0\\1&3&-1\\0&-1&2}$
+\end{itemize}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+\begin{itemize}
+ \item [a.] 
+ \item [b.] 
+\end{itemize}
+}
+%>>>>>>>>>>>>>>   3.4  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Compute the angle between
+$$\vecx=\M{1\\2}, \;\; \vecy=\M{-1\\-1}$$
+using
+\begin{itemize}
+ \item [a.] $\left< \vecx, \vecy \right> := \vecx^\top \vecy$
+ \item [b.] $\left< \vecx, \vecy \right> := \vecx^\top \matB \vecy, \; \matB := \M{2&1\\1&3}$
+\end{itemize}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+\begin{itemize}
+ \item [a.] 
+ \item [b.] 
+\end{itemize}
+}
+%>>>>>>>>>>>>>>   3.5  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Consider the Euclidean vector space $\R^5$ with the dot product. A subspace $U \subseteq \R^5$ and $\vecx \in \R^5$ are given by
+$$U = \textrm{span} \left( \M{0\\-1\\2\\0\\2}, 
+                                         \M{1\\-3\\1\\-1\\2}, 
+                                         \M{-3\\4\\1\\2\\1}, 
+                                         \M{-1\\-3\\5\\0\\7} 
+                                 \right), \vecx = 
+                                         \M{-1\\-9\\-1\\4\\1}$$
+\begin{itemize}
+ \item [a.] Determine the orthogonal projection $\pi_U(\vecx)$ of $\vecx$ onto $U$.
+ \item [b.] Determine the distance $d(\vecx,U)$.
+\end{itemize}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+\begin{itemize}
+ \item [a.] 
+ \item [b.] 
+\end{itemize}
+}
+%>>>>>>>>>>>>>>   3.6  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Consider $\R^3$ with the inner product
+$$\left< \vecx, \vecy \right> := \vecx^\top \M{2&1&0\\1&2&-1\\0&-1&2} \vecy.$$
+Furthermore, we define $\vece_1, \vece_2, \vece_3$ as the standard/canonical basis in $\R^3$.
+\begin{itemize}
+ \item [a.] Determine the orthogonal projection $\pi_U(\vece_2)$ of $\vece_2$ onto
+ $$U = \textrm{span}[\vece_1,\vece_3].$$
+ Hint: Orthogonality is defined through the inner product.
+ \item [b.] Compute the distance $d(\vece_2, U)$.
+ \item [c.]Draw the scenario: standard basis vectors and $\pi_U(\vece_2)$.
+\end{itemize}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+\begin{itemize}
+ \item [a.] 
+ \item [b.] 
+ \item [c.] 
+\end{itemize}
+}
+%>>>>>>>>>>>>>>   3.7  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Let $V$ be a vector space and $\pi$ an endomorphism of $V$.
+\begin{itemize}
+ \item [a.] Prove that $\pi$ is a projection if and only if $\id_V-\pi$ is a projection, where $\id_V$ is the identity endomorphism on $V$.
+ \item [b.] Assume now that $\pi$ is a projection. Calculate $\image(\id_V-\pi)$ and $\ker(\id_V-\pi)$ as a function of $\image(\pi)$ and $\ker(\pi)$.
+\end{itemize}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+\begin{itemize}
+ \item [a.] 
+ \item [b.] 
+\end{itemize}
+}
+%>>>>>>>>>>>>>>   3.8  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Using the Gram-Schmidt method, turn the basis $B = (\vecb_1, \vecb_2)$ of a two-dimensional subspace $U \subseteq \R^3$ into an ONB $C = (\vecc_1, \vecc_2)$ of $U$, where
+$$\vecb_1 := \M{1\\1\\1\\}, \;\; \vecb_2 := \M{-1\\2\\0}.$$
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   3.9  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Let $n \in \N$ and let $x_1, ... , x_n > 0$ be $n$ positive real numbers so that $x_1+...+x_n=1$. Use the Cauchy-Schwarz inequality and show that
+\begin{itemize}
+ \item [a.] $\stsum x_i^2 \geq \frac{1}{n}$
+ \item [b.] $\stsum \frac{1}{x_i} \geq n^2$
+ Hint: Think about the dot product on $\R^n$. Then, choose specific vectors $\vecx, \vecy \in \R^n$ and apply the Cauchy-Schwarz inequality.
+\end{itemize}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+\begin{itemize}
+ \item [a.] 
+ \item [b.] 
+\end{itemize}
+}
+%>>>>>>>>>>>>>>  3.10  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Rotate the vectors 
+$$\vecx_1 = \M{2\\3}, \;\; \vecx_2 := \M{0\\-1}$$
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+\newpage%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Matrix Decompositions}
+%>>>>>>>>>>>>>>  4.1  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Computethe determinant using the Laplace expansion (using the first row) and the Sarrus rule for 
+$$\matA = \M{1&3&5\\2&4&6\\0&2&4}.$$
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   4.2  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Compute the following determinant efficiently:
+$$\M{2 &0&1&2&0\\
+         2 &-1&0&1&1\\
+         0 &1&2&1&2\\
+         -2&0&2&-1&2\\
+         2 &0&0&1&1}$$
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   4.3  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Compute the eigenspaces of 
+\begin{itemize}
+ \item [a.] $$\matA := \M{1&0\\1&1}$$
+ \item [b.] $$\matB := \M{-2&2\\2&1}$$
+\end{itemize}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+\begin{itemize}
+ \item [a.] 
+ \item [b.] 
+\end{itemize}
+}
+%>>>>>>>>>>>>>>   4.4  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Compute all eigenspaces of 
+$$\matA = \M{0&-1&1&1\\
+                       -1&1&-2&3\\
+                       2&-1&0&0\\
+                       1&-1&1&0}.$$
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   4.5  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Diagonalizability of a matrix is unrelated to it invertibility. Determine for the following four matrices whether they are diagonalizable and/or invertible
+$$\M{1&0\\0&1}, \;\; \M{1&0\\0&0}, \;\; \M{1&1\\0&1}, \;\; \M{0&1\\0&0}.$$
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   4.6  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Compute the eigenspaces of the following transformation matrices. Are they diagonalizable?
+\begin{itemize}
+ \item [a.] For $$\matA = \M{2&3&0\\1&4&3\\0&0&1}$$
+ \item [b.] For $$\matA = \M{1&1&0&0\\0&0&0&0\\0&0&0&0\\0&0&0&0}$$
+\end{itemize}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+\begin{itemize}
+ \item [a.] 
+ \item [b.] 
+\end{itemize}
+}
+%>>>>>>>>>>>>>>   4.7  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Are the following matrices diagonalizable? If yes, determine their diagonal form and give a basis with respect to which the transformation matrices are diagonal.
+If no, give reasons why they are not diagonalizable.
+\begin{itemize}
+ \item [a.] $$\matA = \M{ 0&1\\
+                                     -8&4}$$
+ \item [b.] $$\matA = \M{1&1&1\\ 
+                                     1&1&1\\
+                                     1&1&1}$$
+ \item [c.] $$\matA = \M{5&4&2&1\\
+                                     0&1&-1&-1\\
+                                    -1&-1&3&1\\
+                                    1&1&-1&2}$$
+ \item [d.] $$\matA = \M{5&-6&-6\\
+                                    -1&4&2\\
+                                    3&-6&-4}$$
+\end{itemize}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+\begin{itemize}
+ \item [a.] 
+ \item [b.] 
+ \item [c.] 
+ \item [d.] 
+\end{itemize}
+}
+%>>>>>>>>>>>>>>   4.8  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Find the SVD of the matrix 
+$$\matA = \M{3&2&2\\2&3&-2}$$
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   4.9  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Find the singular value decomposition of 
+$$\matA = \M{2&2\\-1&1}$$
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>  4.10  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Find the rank-1 approximation of 
+$$\matA = \M{3&2&2\\2&3&-2}$$
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>  4.11  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Show that for any $\matA \in \R^{m \times n}$ the matrices $\matA^top \matA$ and $\matA \matA^\top$ possess the same nonzero eigenvalues.
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>  4.12  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Show that for $\vecx \neq \veco$ Theorem 4.24 holds, i.e., show that 
+$$\max\limits_x \dfrac{||\matA \vecx ||_2}{||\vecx||_2} = \sigma_1$$
+where $\sigma_1$ is the largest singular value of $\matA \in \R^{m \times n}$.
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+\newpage%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Vector Calculus}
+%>>>>>>>>>>>>>>   5.1  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Compute the derivative $f\pr(x)$ for
+$$f(x) = \log(x^4) \sin(x^3)$$
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   5.2  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Compute the derivative $f\pr(x)$ of the logistic sigmoid
+$$f(x) = \dfrac{1}{1+\exp(-x)}.$$
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   5.3  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Compute the derivative $f\pr(x)$ of the function
+$$f(x) = \exp(-\frac{1}{2\sigma^2}(x-mu)^2),$$
+where $\mu, \sigma \in \R$ are constants.
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   5.4  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Compute the Taylor polynomials $T_n, n=0, ... , 5$ of $f(x) = \sin(x)+\cos(x)$ at $x_0=0$.
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   5.5  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Consider the following functions:
+\begin{align*}
+& f_(x) = \sin(x_1)\cos(x_2), \;\; \vecx \in \R^2 \\
+& f_2(x,y) = x^\top y, \;\; \vecx, \vecy \in \R^n \\
+& f_3(x) = \vecx \vecx^\top, \;\; \vecx \in \R^n
+\end{align*}
+\begin{itemize}
+ \item [a.] What are the dimensions of $\dfrac{\partial f_i}{\partial \vecx}$
+ \item [b.] Compute the Jacbians.
+\end{itemize}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+\begin{itemize}
+ \item [a.] 
+ \item [b.] 
+\end{itemize}
+}
+%>>>>>>>>>>>>>>   5.6  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Differentiate $f$ with respect to $\textbf{t}$ and $g$ with respect to $\textbf{X}$, where 
+\begin{align*}
+& f(t)=\sin(\log(t^\top t)), & t \in \R^D \\
+& g(\textbf{X}) = \textrm{tr}(\matA \textbf{X} \matB), & \matA \in \R^{D \times E}, \textbf{X} \in \R^{E \times F}, \matB \in \R^{F \times D},
+\end{align*}
+where tr$(\cdot)$ denotes the trace.
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   5.7  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Compute the derivatives $\textrm{d}f/\textrm{d}x$ of the following functions by using the chain rule. Provide the dimensions of every single partial derivative. Describe your steps in detail.
+\begin{itemize}
+ \item [a.] $$f(z) = \log(1+z), \;\; z = \vecx^\top \vecx, \;\; \vecx \in \R^D$$
+ \item [b.] $$f(z) = \sin(x), \;\; \vecz = \matA \vecx + \vecb, \;\; \matA \in \R^{E \times D}, \;\; \vecx \in \R^D, \vecb \in \R^E$$
+ where $\sin(\cdot)$ is applied to every element of $z$.
+\end{itemize}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+\begin{itemize}
+ \item [a.] 
+ \item [b.] 
+\end{itemize}
+}
+%>>>>>>>>>>>>>>   5.8  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+Compute the derivatives $\textrm{d}f/\textrm{d}\vecx$ of the following functions. Describe your steps in detail.
+\begin{itemize}
+ \item [a.] Use the chain rule. Provide the dimensions of every single partial derivative.
+ \begin{align*}
+ f(x) &= \exp(-\frac{1}{2}z) \\
+ z &= g(\vecy) = \vecy^\top \textbf{S}\inv \vecy \\
+ \vecy &= h(\vecx) = \vecx - \mu
+ \end{align*}
+ where $\vecx, \mu \in \R^D, \textbf{S} \in \R^{D \times D}$.
+ \item [b.] $$f(\vecx) = \textrm{tr}(\vecx \vecx^\top + \sigma^2 \textrm{I}), \;\; \vecx \in \R^D$$
+ Here tr$(\matA)$ is the trace of $\matA$, i.e., the sum of the diagonal elements $A_{ii}$. \\
+ \textit{Hint: Explicitly write out the outer product.}
+ \item [c.] Use the chain rule. Provide the dimensions of every single partial derivative. You do not need to compute the product of the partial derivatives explicitly.
+ \begin{align*}
+ \textbf{\textit{f}} &= \tanh(\vecz) \in \R^M \\
+ \vecz = \matA \vecx + \vecb, \;\; \vecx \in \R^N, \matA \in \R^{M \times N}, \vecb \in \R^M.
+ \end{align*}
+ Here, $\tanh$ is applied to every component of $\vecz$.
+\end{itemize}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+\begin{itemize}
+ \item [a.] 
+ \item [b.] 
+ \item [c.]
+\end{itemize}
+}
+%>>>>>>>>>>>>>>   5.9  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+We define 
+\begin{align*}
+g(\vecz, 
+\textbf{$\nu$}) 
+&:= 
+\log p(\vecx, \vecz) - \log q(\vecz, \mathbf{\nu}) \\
+\vecz 
+&:= 
+t(\mathbf{\epsilon}, \mathbf{\nu})
+\end{align*}
+for differentiable functions $p,q,t$, and $\vecx \in \R^D, \vecz \in \R^E, \mathbf{\nu} \in \R ^F, \mathbf{\epsilon} \in \R^G$. By using the chain rule, compute the gradient $$\dfrac{\textrm{d}}{\textrm{d} \mathbf{\nu}} g(\vecz, \mathbf{\nu}).$$
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+\newpage%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Probability and Distributions}
+%>>>>>>>>>>>>>>   6.1  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   6.2  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   6.3  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   6.4  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   6.5  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   6.6  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   6.7  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   6.8  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   6.9  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>  6.10  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>  6.11  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>  6.12  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>  6.13  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+\newpage%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Continuous Optimization}
+%>>>>>>>>>>>>>>   7.1  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   7.2  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   7.3  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   7.4  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   7.5  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   7.6  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   7.7  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   7.8  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>   7.9  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>  7.10  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+%>>>>>>>>>>>>>>  7.11  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\subsection{}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\textcolor{blue}{
+Answer to come...
+}
+
+\end{document}
