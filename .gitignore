@@ -4,7 +4,6 @@ build/
 .xdp_*
 *.aux
 *.gz
-*.pdf
 *.toc
 *.7z
 *.rar

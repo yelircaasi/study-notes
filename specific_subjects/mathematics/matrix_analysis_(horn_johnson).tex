@@ -65,7 +65,7 @@ The space of real-valued functions is an example of an infinite-dimensional vect
 Subspaces are usually defined by making certain elements of the vector zero, which makes the resulting set closed under addition.\\~\\
 \att Prove: The intersection of two subspaces is itself a subspace.\\~\\
 The span of a subset is always a subspace, even if the subset is itself not a subspace. \att prove! \\~\\
-Span: space of all linear combinations of a set of vectors.\\~\\
+span: space of all linear combinations of a set of vectors.\\~\\
 Linear independence in a nutshell: a linear combination of the vectors can only equal 0 if each coefficient is zero. Equivalently: no vector in the set is a linear combination of the other vectors.\\~\\
 \att Simple exercise: Prove that any subset of a linearly independent set is itself linearly independent.\\~\\
 Basis of a vector space: a linearly independent set that spans the vector space\\~\\
@@ -90,11 +90,11 @@ Isomorphism example: $f: V \rightarrow \F^n: \x \mapsto [\x]_\Bcal: a_1 \bv_1+..
 $[\x]_\Bcal$ represents the new coordinates of $\x$ in ordered basis $\Bcal$, i.e. the $\Bcal$-coordinates of $\x$.\\~\\
 Change-of-basis matrix (transition matrix):
 \begin{quote}\end{quote}
-Concrete example: 
+Concrete example:
 \begin{quote}Let $\x=[\x]_I=\bm{2\\-1\\1}, \Bcal_1=\left( \bm{2\\0\\-1}, \bm{0\\2\\1}, \bm{-1\\0\\1} \right), \Bcal_2=\left( \bm{2\\0\\0}, \bm{1\\2\\1}, \bm{-1\\-1\\2} \right) \\ \Rightarrow B_1=\bm{2&0&-1\\0&2&0\\-1&1&1}, B_2=\bm{2&1&-1\\0&2&-1\\0&1&2}$.\end{quote}
 \begin{quote}First solve for $[\x]_{\Bcal_1}$: \end{quote}
                                                                       \begin{align*}
-                                                                      B_1 \av_1&= \x \\ 
+                                                                      B_1 \av_1&= \x \\
                                                                       \av_1 &= [\x]_{\Bcal_1} = B_1\inv \x \\
                                                                       \end{align*}
 \begin{quote}Analogously, $[\x]_{\Bcal_2} = B_2\inv \x$.\end{quote}
