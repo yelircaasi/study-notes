@@ -15,13 +15,34 @@ avoids amibiguities, for example with gettext.
 
 3 функции PEP:
 
-1. A
-2. B
-3. C
+1. A) информирования
+2. B) стандартизации
+3. C) проектирования
+
+Stackless Python ⟶ need to understand better
+
+PyPy - possible to dynamically change interpretor behavior
+
+Полезные ресурсы
+
+* [Awesome Python](github.com/vinta/awesome-python)
+* [r/Python](www.reddit.com/r/Python/)
+* [Python Weekly](www.pythonweekly.com)
+* [Pycoder’s Weekly](pycoders.com)
 
 TODO: read PEP 0
 
-### 2
+### 2. Современные среды разработки на Python
+
+* Vagrant
+* Docker
+* virtualenv
+* ipython
+* ipdb
+* ptpython
+* ptdb
+* bpython
+* bpdb
 
 ### 3
 
@@ -187,6 +208,47 @@ class Money:
         return cls(dollars, cents)
 ```
 
+## The Well-Grounded Python Developer
+
+### 1. Becoming a Pythonista
+
+look at flake8 ⟶
+
+re-read PEP8 ⟶
+
+GUI programs: event-driven (learn more about for gtt)
+
+resources:
+
+* <https://realpython.com> – Real Python is an excellent source of tutorials
+  about Python
+* <https://pythonbytes.fm> – a Python podcast delivering interesting
+  headlines and banter
+* <https://talkpython.fm> – The Talk Python To Me podcast has
+  interviews with people and
+  personalities in the community.
+* <https://pythonpodcast.com> – `Podcast.__init__` is another good
+  interview podcast
+* <https://testandcode.com> – Test and Code, a podcast about software
+  testing and Python
+* <https://www.pythonweekly.com> – the sign-up page for a weekly
+  Python newsletter
+  containing links to useful articles and information
+* <https://pycoders.com> – The sign-up page for another great
+  Python newsletter
+
+"Shipping is a feature that can't be overstated."
+
+### 2. Your Development Environment
+
+VSCode extensions to look at:
+
+* PYTHON DOCSTRING GENERATOR
+* CODE RUNNER
+* DOTENV
+* BETTER JINJA
+* AREPL FOR PYTHON
+
 ## Advanced Python Programming
 
 .
@@ -213,7 +275,21 @@ class Money:
 
 ## Секреты Python Pro
 
-.
+### 1. Крупный план
+
+Python имеет такой же вес в сложных корпоративных проектах,
+как и другие основные языки программирования.
+
+Python имеет одну из самых быстрорастущих пользовательских
+баз из всех языков программирования.
+
+Дизайн — это не только внешний вид, а процесс, которому вы следуете,
+чтобы добраться до цели.
+
+Дизайн — это инвестиция, которая потом вознаградит вас чистым
+и гибким кодом.
+
+Необходимо создавать ПО с учетом разнообразной аудитории.
 
 ## Путь Python
 
