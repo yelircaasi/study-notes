@@ -1,6 +1,6 @@
 # Summary
 
-[Learning Overview](./_overview_.md)
+[Learning Overview](./_overview.md)
 - [Roadmaps](./roadmaps.md)
   - [CS Roadmap](./roadmap_cs.md)
   - [DS/ML Roadmap](./roadmap_ds.md)
