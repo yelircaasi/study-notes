@@ -1,0 +1,26 @@
+[book]
+title = "Study Notes"
+description = "My personal notes on what I learn."
+authors = ["yelircaasi"]
+language = "en"
+multilingual = false
+src = "src"
+
+[output.html]
+mathjax-support = true
+site-url = "/study-notes/"
+git-repository-url = "https://github.com/yelircaasi/study-notes/tree/master"
+edit-url-template = "https://github.com/yelircaasi/study-notes/tree/master/{path}"
+
+[output.html.playground]
+editable = true
+line-numbers = true
+
+[output.html.search]
+limit-results = 20
+use-boolean-and = true
+boost-title = 2
+boost-hierarchy = 2
+boost-paragraph = 1
+expand = true
+heading-split-level = 2
